@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'ons-page[home]',
@@ -8,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 export class HomeComponent implements OnInit {
   message = 'Pull down to refresh';
   items = [];
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }
@@ -32,5 +33,9 @@ export class HomeComponent implements OnInit {
         this.message = 'Loading data...';
         break;
     }
+  }
+
+  onClick(){
+    this.router.navigateByUrl('/post');
   }
 }

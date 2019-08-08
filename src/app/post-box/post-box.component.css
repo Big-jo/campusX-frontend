@@ -1,0 +1,40 @@
+#postBox{
+    display: flex;
+    flex-direction: column;
+    margin-top: 75px !important;
+}
+.textarea{
+    width: 80%;
+    background-color: white;
+    /* margin-left: 25px; */
+    align-self: center !important;
+}
+#media-box{
+    padding: 15px 45px 45px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+#control-box{
+    display: flex;
+    flex-direction: column;
+}
+.switch{
+    margin-bottom: 15px;
+    margin-right: 45px;
+}
+.btn-post{
+    width: 75%;
+    margin: auto;
+    text-align: center;
+}
+#anon{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between
+}
+.label{
+    margin-left: 50px;
+}
+
+/* TODO: Add a nie font */

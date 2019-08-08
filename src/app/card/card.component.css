@@ -1,0 +1,18 @@
+.profile{
+    display: flex;
+    flex-direction: row;
+    padding: 5px;
+}
+.profile-thumbnail {
+    border-radius: 50%;
+    height: 35px;
+    width: 35px;
+}
+.name{
+    margin-top: 8px;
+    margin-left: 10px;
+}
+#interaction-box{
+    display: flex;
+    flex-direction: row;
+}

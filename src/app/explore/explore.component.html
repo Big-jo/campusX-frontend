@@ -4,15 +4,29 @@
   <div class="content">
     <!-- Content of the page -->
     <ons-toolbar>
-      <div class="center">
-        <ons-search-input id="text" placeholder="Type here" [(value)]="target"></ons-search-input>
+      <div class="center search">
+        <ons-search-input
+          id="text"
+          placeholder="Look for anyone"
+          [(value)]="target"
+        ></ons-search-input>
       </div>
     </ons-toolbar>
-    <div class="background"></div>
-    <div class="content" class="initial-page">
-      <div style="text-align: center; margin: 10px">
-        <p>This is the first page.</p>
+    <div></div>
+    <div class="content">
+      <div class="intro " style="margin-top: 45px; text-align: center">
+        Explore
       </div>
+      <ons-list>
+        <ons-list-header>Explore</ons-list-header>
+        <ons-list-item expandable>
+          <p>See what's going on in other campuses</p>
+          <div class="expandable-content">
+              <ons-list-item tappable>Bells University</ons-list-item>
+              <!-- Add number of interactions beside -->
+          </div>
+        </ons-list-item>
+      </ons-list>
     </div>
   </div>
 </ons-page>

@@ -16,6 +16,8 @@ import { HomeComponent } from './home/home.component';
 import { ExploreComponent } from './explore/explore.component';
 import { ProfileComponent } from './profile/profile.component';
 import { NotificationComponent } from './notification/notification.component';
+import { CardComponent } from './card/card.component';
+import { PostBoxComponent } from './post-box/post-box.component';
 
 @NgModule({
   declarations: [
@@ -25,13 +27,15 @@ import { NotificationComponent } from './notification/notification.component';
     MainComponent,
     ProfileComponent,
     NotificationComponent,
-  ], 
+    CardComponent,
+    PostBoxComponent,
+  ],
   imports: [
     // Browser Module,
-    AppRoutingModule,
     OnsenModule,
+    AppRoutingModule,
   ],
-  entryComponents: [HomeComponent, ExploreComponent, ProfileComponent, NotificationComponent],
+  entryComponents: [MainComponent, HomeComponent, ExploreComponent, ProfileComponent, NotificationComponent, PostBoxComponent],
   providers: [],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   bootstrap: [AppComponent]

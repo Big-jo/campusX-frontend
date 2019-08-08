@@ -12,8 +12,11 @@
     <div class="background"></div>
     <div class="content" class="initial-page">
       <div style="text-align: center; margin: 10px">
-        <p>This is the first page.</p>
+        <app-card></app-card>
       </div>
     </div>
+    <ons-fab position="right bottom"modifier="mini" (click)="onClick()">
+        <ons-icon icon="pen" size="25px"></ons-icon>
+      </ons-fab>
   </div>
 </ons-page>
