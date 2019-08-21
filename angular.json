@@ -24,6 +24,7 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/colors.css/css/colors.css",
               "node_modules/onsenui/css/onsenui.css",
               "node_modules/onsenui/css/onsen-css-components.css",
               "src/styles.css"
