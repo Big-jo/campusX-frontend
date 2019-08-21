@@ -1,3 +1,9 @@
 .search{
     margin-top: 9px;
 }
+
+.head{
+    background-color: white;
+    color: #082943;
+    border-bottom-color: red;
+}

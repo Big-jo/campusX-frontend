@@ -1,1 +1,43 @@
-<p>profile works!</p>
+<ons-page>
+  <div class="background"></div>
+  <!-- Background of the page -->
+  <div class="content">
+    <!-- Content of the page -->
+    <div id="profile-head">
+      <div id="avatar-panel">
+        <img id="avatar" src="http://placekitten.com/g/160/160" alt="" srcset="">
+        <div id="alias">
+          <h1 id="name">John Doe</h1>
+          <h6 id="tag">@userTag</h6>
+        </div>
+      </div>
+      <div id="info-panel">
+          <div id="reps">
+              <span >Rep</span>
+              <p>2.5</p>
+          </div>
+          <hr style="margin: 0px;">
+          <div class="followers">
+               <span id="followers" style="text-align: center;">Followers</span>
+               <p>50</p>
+          </div>
+          <hr style="margin: 0px;">
+          <div class="following">
+                <span id="following" style="text-align: center;">Following</span>
+                <p style="text-align: center;">50</p>
+           </div>
+      </div>
+    </div>
+    <div id="posts">
+       <h3 style="margin-top: 40px; margin-left: 30px;">Posts</h3>
+        <div id="post-wrapper">
+           <app-card></app-card>
+           <app-card></app-card>
+           <app-card></app-card>
+           <app-card></app-card>
+           <app-card></app-card>
+           <app-card></app-card>
+        </div>
+    </div>
+  </div>
+</ons-page>

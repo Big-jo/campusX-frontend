@@ -8,3 +8,6 @@
 .tabbar{
   border-top-width: 1px;
 }
+:checked + .tabbar__button {
+  color: #082943 !important;
+}

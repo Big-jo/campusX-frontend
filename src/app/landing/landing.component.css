@@ -1,0 +1,19 @@
+#btn-panel{
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    align-items: center;
+}
+
+.btn{
+    margin-bottom: 15px;
+    width: 75%;
+    position: relative;
+    text-align: center;
+    border-radius: 20px;
+}

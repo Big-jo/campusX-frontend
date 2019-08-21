@@ -1,0 +1,80 @@
+.background {
+    background-color: white;
+}
+.head{
+    background-color: white;
+    color: #082943;
+}
+#avatar{
+    border-radius: 40px;
+    /* margin-left: 15px; */
+    width:100px;
+    height:100px;
+}
+#avatar-panel{
+    display: flex;
+    flex-direction: row;
+    margin-top: 20px;
+    margin-left: 25px;
+}
+#name{
+    padding-left: 30px;
+    padding-top: 10px;
+    color: #082943;
+    font-size: xx-large;
+    font-weight: bolder;
+    margin-bottom: 0;
+}
+#alias{
+    display: flex;
+    flex-direction: column;
+}
+#tag{
+    margin: 0px;
+    padding-left: 30px;
+    color: #082943;
+    font-size: small;
+}
+#info-panel{
+    background-color: whitesmoke;
+    width: 75%;
+    border-radius: 20px;
+    /* margin: auto; */
+    margin-top: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding-top: 14px;
+    padding-bottom: 10px;
+    font-weight: bolder;
+    color: #082943;
+    font-size: smaller;
+    line-height: 6px;
+    margin-left: 25px;
+    box-shadow: 0 2px 5px 1px rgba(0,0,0,0.2);
+}
+#followers{
+    border-right-color: #082943;
+}
+
+.followers p{
+    text-align: center;
+}
+
+#reps{
+    padding-left: 10px;
+    border-right-color: #082943;
+    text-align: center
+}
+#post-wrapper{
+    width: fit-content;
+}
+.card{
+    width: 100%;
+    background-color: whitesmoke;
+}
+h1,h2,h3,h4,h5,h6, p{
+    color: #082943;
+    font-family: 'Montserrat', sans-serif;
+
+}
