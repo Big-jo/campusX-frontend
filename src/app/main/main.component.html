@@ -5,32 +5,31 @@
 (onChange)="onChange($event)"
 (onTabClick)="onTabClick($event)"
 >
-<TabPane [title]="'Home'">
-  <div
-    style="display: flex; height: 150px; width: 100%; background-color: white;align-items: center;justify-content: center;"
-  >
-    Content of first tab
-  </div>
+<TabPane [title]="home">
+    <ng-template #home>
+      <span class="typcn typcn-home-outline"></span>
+    </ng-template>
+    
+    <app-home></app-home>
 </TabPane>
-<TabPane [title]="'Explore'">
-  <div
-    style="display: flex; height: 150px; width: 100%; background-color: white;align-items: center;justify-content: center;"
-  >
-    Content of second tab
-  </div>
+<TabPane [title]="explore">
+  <ng-template #explore>
+    <span class="typcn typcn-zoom-outline"></span>
+  </ng-template>
+  
+  <app-explore></app-explore>
 </TabPane>
-<TabPane [title]="'Notification'">
-  <div
-    style="display: flex; height: 150px; width: 100%; background-color: white;align-items: center;justify-content: center;"
-  >
-    Content of third tab
-  </div>
+<TabPane [title]="notification">
+  <ng-template #notification>
+    <span class="typcn typcn-bell"></span>
+  </ng-template>
+  
+  <app-notification></app-notification>
 </TabPane>
-<TabPane [title]="'Profile'">
-    <div
-      style="display: flex; height: 150px; width: 100%; background-color: white;align-items: center;justify-content: center;"
-    >
-      Content of third tab
-    </div>
+<TabPane [title]="profile">
+  <ng-template #profile>
+        <img class="avatar" src="http://placekitten.com/g/60/60" alt="" srcset="">
+    </ng-template>
+      <app-profile></app-profile>
   </TabPane>
 </Tabs>

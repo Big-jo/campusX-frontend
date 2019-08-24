@@ -11,6 +11,8 @@
 .name{
     margin-top: 8px;
     margin-left: 10px;
+    font-weight: bolder;
+    font-size: 17px;
 }
 #interaction-box{
     display: flex;
@@ -21,4 +23,6 @@ h1,h2,h3,h4,h5,h6, p {
 }
 .card{
     box-shadow: 0 3px 5px 1px rgba(0,0,0,0.2);
+    border-radius: 20px;
+    padding: 15px;
 }

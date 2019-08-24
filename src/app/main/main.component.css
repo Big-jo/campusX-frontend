@@ -11,6 +11,13 @@
 :checked + .tabbar__button {
   color: #082943 !important;
 }
-Tabs{
-  height: 100%;
+.avatar{
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+.typcn{
+  font-size: 25px;
+  font-weight: bold;
+  /* color: grey; */
 }

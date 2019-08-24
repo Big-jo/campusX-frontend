@@ -13,7 +13,7 @@ import { NotificationComponent } from '../notification/notification.component';
 export class MainComponent implements OnInit {
 
   flag = true;
-  index = 1;
+  index = 0;
 
   constructor() { }
 
