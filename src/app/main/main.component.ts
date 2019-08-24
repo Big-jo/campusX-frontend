@@ -11,13 +11,28 @@ import { NotificationComponent } from '../notification/notification.component';
   styleUrls: ['./main.component.css']
 })
 export class MainComponent implements OnInit {
-  home = HomeComponent;
-  explore = ExploreComponent;
-  profile = ProfileComponent;
-  notifications = NotificationComponent;
+
+  flag = true;
+  index = 1;
+
   constructor() { }
 
   ngOnInit() {
   }
 
+  onChange(item) {
+    console.log('onChange', item);
+  }
+
+  onTabClick(item) {
+    console.log('onTabClick', item);
+  }
+
+  selectCard(e) {
+    console.log(' ', JSON.stringify(e));
+  }
+
+  changeIndex() {
+    this.index = 0;
+  }
 }

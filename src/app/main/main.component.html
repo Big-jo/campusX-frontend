@@ -1,9 +1,36 @@
-<ons-tabbar swipeable animation="none" position="auto" (swipe)="onSwipe($event)">
-  <div class="tabbar__content"></div>
-  <div class="tabbar">
-    <ons-tab [page]="home"><ons-icon icon="fa-home" active></ons-icon></ons-tab>
-    <ons-tab [page]="explore"><ons-icon icon="fa-search"></ons-icon></ons-tab>
-    <ons-tab [page]="notifications"><ons-icon icon="fa-bell"></ons-icon></ons-tab>
-    <ons-tab [page]="profile"><img style="height: 35px; width: 35px" class="profile-thumbnail" src="http://placekitten.com/g/70/70"></ons-tab>
+<Tabs
+[page]="4"
+[activeTab]="index"
+[tabBarPosition]="'bottom'"
+(onChange)="onChange($event)"
+(onTabClick)="onTabClick($event)"
+>
+<TabPane [title]="'Home'">
+  <div
+    style="display: flex; height: 150px; width: 100%; background-color: white;align-items: center;justify-content: center;"
+  >
+    Content of first tab
   </div>
-</ons-tabbar>
+</TabPane>
+<TabPane [title]="'Explore'">
+  <div
+    style="display: flex; height: 150px; width: 100%; background-color: white;align-items: center;justify-content: center;"
+  >
+    Content of second tab
+  </div>
+</TabPane>
+<TabPane [title]="'Notification'">
+  <div
+    style="display: flex; height: 150px; width: 100%; background-color: white;align-items: center;justify-content: center;"
+  >
+    Content of third tab
+  </div>
+</TabPane>
+<TabPane [title]="'Profile'">
+    <div
+      style="display: flex; height: 150px; width: 100%; background-color: white;align-items: center;justify-content: center;"
+    >
+      Content of third tab
+    </div>
+  </TabPane>
+</Tabs>

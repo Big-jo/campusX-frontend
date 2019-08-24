@@ -11,3 +11,6 @@
 :checked + .tabbar__button {
   color: #082943 !important;
 }
+Tabs{
+  height: 100%;
+}

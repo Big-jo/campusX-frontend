@@ -1,15 +1,16 @@
-<form class="form" #form="ngForm">
+<form class="form" #form="ngForm" (ngSubmit)="onSubmit(form.value)">
    <h3>Log In</h3>
   <div class="wrapper">
     <div class="question">
-      <input type="text" required />
+      <input type="text" name="email" required ngModel/>
       <label>Email</label>
     </div>
     <div class="question">
-      <input type="text" required />
+      <input type="text" name="password" required ngModel/>
       <label>Password</label>
     </div>
   </div>
   <button type="submit">Submit</button>
- <p>Don't have an account ?</p>
+ <p [routerLink]='["/signUp"]'>Don't have an account ?</p>
 </form>
+<!-- <ons-navigator swipeable [page]="page"></ons-navigator> -->

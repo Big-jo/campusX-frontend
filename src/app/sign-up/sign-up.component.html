@@ -1,38 +1,41 @@
 <!-- SVG -->
-<form class="form" #form="ngForm">
+<form class="form" #form="ngForm" (ngSubmit)="onSubmit(form.value)">
+    <!-- TODO: Bump up size of title -->
     <h3>Sign Up</h3>
   <div class="wrapper">
     <div class="question">
-      <input type="text" required />
+      <input type="text" name="name" required ngModel/>
       <label>Name</label>
     </div>
     <div class="question">
-      <input type="text" required />
+      <input type="text" name="email" required ngModel/>
       <label>Email</label>
     </div>
     <div class="question">
-      <input type="text" required />
+      <input type="text" name="password" required ngModel/>
       <label>Password</label>
     </div>
     <div class="question">
-      <input type="text" required />
-      <label>UserTag E.g: @RealMe</label>
+      <input type="text" name="userTag" required ngModel/>
+      <label>UserTag, Example: @RealMe</label>
+      <!-- TODO: Show userTag in style -->
     </div>
     <div class="question">
-      <input type="text" required />
-      <label>University</label>
+      <input type="text" name="university" required ngModel/>
+      <label>University, Example: UNILAG</label>
     </div>
   </div>
 
   <div class="chks">
         <label class="container">Male
-                <input type="checkbox">
+                <input type="checkbox"  name="male" ngModel>
                 <span class="checkmark"></span>
         </label>
         <label class="container">Female
-                <input type="checkbox">
+                <input type="checkbox"  name="female" ngModel>
                 <span class="checkmark"></span>
         </label>
   </div>
   <button type="submit">Submit</button>
+  <p [routerLink]= '[""]'>Already Have An Account ?</p>
 </form>

@@ -1,7 +1,4 @@
-<ons-toolbar>
-  <div class="left"><ons-back-button [routerLink]="[ '.main']"></ons-back-button></div>
-  <div class="center">Page2</div>
-</ons-toolbar>
+<!-- TODO: Add Back button -->
 <div class="content">
   <div id="postBox">
     <textarea
@@ -12,14 +9,13 @@
     ></textarea>
   </div>
   <div id="media-box">
-    <ons-icon icon="fa-camera" size="25px"> <ons-ripple></ons-ripple></ons-icon>
-    <ons-icon icon="fa-image" size="25px"><ons-ripple></ons-ripple></ons-icon>
+    <!-- TODO: Add Icons -->
   </div>
   <div id="control-box">
     <div id="anon">
         <p class="label">Post Anonnymously</p>
-        <ons-switch class="switch" [value]="target" (change)="target = $event.target.checked"></ons-switch>
+        <!-- TODO: Add Switch -->
     </div>
-    <ons-button class="btn-post" (click)="onClick()" modifier="outline">Post</ons-button>
-  </div>
+    <!-- TODO: Add Outlined button -->
+</div>
 </div>

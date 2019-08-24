@@ -1,22 +1,26 @@
-<ons-page>
+<div class="container">
   <div class="background"></div>
   <!-- Background of the page -->
-  <ons-toolbar>
+  <div>
+    <!-- head toolbar -->
     <div class="center head">Home</div>
-  </ons-toolbar>
+  </div>
   <div class="content">
     <!-- Content of the page -->
-    <ons-pull-hook height="64px" threshold-height="128px" (changestate)="onChangeState($event)" (action)="onAction($event)">
-        {{message}}
-      </ons-pull-hook>
+    <PullToRefresh
+      [ngStyle]="dtPullToRefreshStyle"
+      [(ngModel)]="state.refreshState"
+      [endReachedRefresh]="state.endReachedRefresh"
+      (onRefresh)="pullToRefresh($event)"
+    >
+    </PullToRefresh>
+
     <div class="background"></div>
     <div class="content" class="initial-page">
       <div style="text-align: center; margin: 10px">
         <app-card></app-card>
       </div>
     </div>
-    <ons-fab position="right bottom"modifier="mini" (click)="onClick()">
-        <ons-icon icon="pen" size="25px"></ons-icon>
-      </ons-fab>
+   <!-- Add Button to go to post-section -->
   </div>
-</ons-page>
+</div>

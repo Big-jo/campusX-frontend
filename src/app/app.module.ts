@@ -1,14 +1,8 @@
-// import { BrowserModule } from '@angular/platform-browser';
-// import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import {
-  Component,
-  ViewChild,
-  OnsenModule,
-  NgModule,
-  CUSTOM_ELEMENTS_SCHEMA,
-} from 'ngx-onsenui';
-import { FormsModule } from '@angular/forms';
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule} from '@angular/core';
 
+import { FormsModule } from '@angular/forms';
+import {PlyrModule} from 'ngx-plyr';
 // import {OnsenModule} from 'ngx-onsenui';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -23,38 +17,36 @@ import { PostBoxComponent } from './post-box/post-box.component';
 import { LandingComponent } from './landing/landing.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { LogInComponent } from './log-in/log-in.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http';
+import { NgZorroAntdMobileModule } from 'ng-zorro-antd-mobile';
 
 @NgModule({
    declarations: [
       AppComponent,
       HomeComponent,
       ExploreComponent,
-      MainComponent,
       ProfileComponent,
       NotificationComponent,
       CardComponent,
       PostBoxComponent,
       LandingComponent,
       SignUpComponent,
-      LogInComponent
+      LogInComponent,
+      MainComponent,
    ],
    imports: [
-      OnsenModule,
+      BrowserModule,
       AppRoutingModule,
       FormsModule,
-   ],
-   entryComponents: [
-      MainComponent,
-      HomeComponent,
-      ExploreComponent,
-      ProfileComponent,
-      NotificationComponent,
-      PostBoxComponent,
-      SignUpComponent,
+      PlyrModule,
+      BrowserAnimationsModule,
+      HttpClientModule,
+      NgZorroAntdMobileModule,
    ],
    providers: [],
    schemas: [
-      CUSTOM_ELEMENTS_SCHEMA
+
    ],
    bootstrap: [
       AppComponent

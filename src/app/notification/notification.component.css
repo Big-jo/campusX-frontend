@@ -1,0 +1,38 @@
+#head-title h3{
+    color: #082943;
+    font-size: x-large;
+    font-weight: bolder;
+    padding: 30px 15px 20px 0px;
+    margin-left: 30px;
+}
+#listPanel{
+    display: flex;
+    flex-direction: column;
+    
+}
+.item{
+    display: flex;
+    flex-direction: row;
+    padding: 7px;
+    justify-content: space-around;
+}
+.avatar{
+    width: 60px;
+    height: 60px;
+    border-radius: 20px;
+}
+.name{
+    padding-left: 10px;
+    color: #082943;
+    font-weight: bold;
+     
+}
+.btn-f-back{
+    background-color: transparent;
+    border: 1px solid #082943;
+    width: fit-content;
+    border-radius: 50px;
+    height: 30px;
+    outline: none;
+    margin: 11px;
+}
