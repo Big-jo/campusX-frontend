@@ -4,9 +4,11 @@
     padding: 5px;
 }
 .profile-thumbnail {
-    border-radius: 50%;
+    border-radius: 25%;
     height: 35px;
     width: 35px;
+    position: relative;
+    top: 10px;
 }
 .name{
     margin-top: 8px;
@@ -17,6 +19,7 @@
 #interaction-box{
     display: flex;
     flex-direction: row;
+    margin: 20px 0px 20px 0px;
 }
 h1,h2,h3,h4,h5,h6, p {
     font-family: 'Montserrat', sans-serif;
@@ -25,4 +28,41 @@ h1,h2,h3,h4,h5,h6, p {
     box-shadow: 0 3px 5px 1px rgba(0,0,0,0.2);
     border-radius: 20px;
     padding: 15px;
+    margin-bottom: 15px;
+}
+#content-box{
+    margin-top: 10px;
+    padding: 10px;
+}
+.post{
+    padding: auto;
+    font-size: initial;
+
+}
+.typcn.left{
+    margin-right: 20px;
+}
+.typcn.right{
+    position: relative;
+}
+.trash{
+    position: relative;
+}
+.typcn-trash{
+    position: absolute;
+    left: 190px;
+}
+.typcn{
+    font-size: 19px;
+    color:  #082945;
+}
+#ld{
+  display: flex;
+  flex-direction: row;   
+}
+p{
+    word-wrap: break-word;
+}
+.badge{
+    color: #082945;
 }

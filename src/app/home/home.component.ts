@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { PostService } from '../services/post.service';
+import { IPost } from '../interfaces/Post';
 
 @Component({
   selector: 'app-home',
@@ -19,10 +21,42 @@ export class HomeComponent implements OnInit {
     directionName: 'both up and down'
   };
   dtPullToRefreshStyle = { height: this.state.height + 'px' };
-
   message = 'Pull down to refresh';
   items = [];
-  constructor(private router: Router) { }
+
+  Posts: Array<IPost>;
+
+  constructor(private router: Router, private postService: PostService) {
+    this.Posts = [
+      {
+        avatar: 'http://placekitten.com/g/160/160',
+        dislikes: 0,
+        likes: 0,
+        name: 'Joseph Henshaw',
+        post: 'Lorem Something Something',
+        trash: 300,
+        userTag: '@henshaw'
+      },
+      {
+        avatar: 'http://placekitten.com/g/160/160',
+        dislikes: 10,
+        likes: 20,
+        name: 'John Doe',
+        post: 'jreomgtowgmgmfpovmses',
+        trash: 300,
+        userTag: '@ipps'
+      },
+      {
+        avatar: 'http://placekitten.com/g/160/160',
+        dislikes: 30,
+        likes: 20,
+        name: 'John Opions',
+        post: 'mmmimrwgntgnwuinivnwevionrnwov',
+        trash: 500,
+        userTag: '@tytu'
+      }
+    ];
+   }
 
   ngOnInit() {
   }
@@ -48,8 +82,9 @@ export class HomeComponent implements OnInit {
     }
   }
 
-
-  onClick(){
-    this.router.navigateByUrl('/post');
+  GetPost() {
+    this.postService.GetPost().subscribe((res) => {
+      // this.Posts = res.Posts
+    });
   }
 }

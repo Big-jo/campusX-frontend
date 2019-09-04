@@ -2,25 +2,36 @@
   <div class="profile">
     <img
       class="profile-thumbnail"
-      src="https://monaca.io/img/logos/download_image_onsenui_01.png"
-      alt="Onsen UI"
+      [src]="post.avatar"
       style="width: 10%"
     />
     <div class="name">
-      John Doe<span style="color: blue">@Doe</span>
+      <h3>{{post.name}}</h3> <span ><h5 style="color: blue">{{post.userTag}}</h5></span>
     </div>
   </div>
 
   <div class="content">
     <div id="content-box">
-        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ratione quasi amet voluptatum, architecto, beatae inventore aperiam modi dicta doloremque voluptas facere harum reprehenderit fugit suscipit non, ducimus cum tenetur voluptate?</p>
-    </div>
-    <div id="interaction-box">
-      <div id="like">
-        <!-- Add ngStyle for this -->
-        <!-- TODO: Add Icon -->
+      <div class="post">
+          <p>{{post.post}}</p>
       </div>
-      <!-- <div id="comment"></div> -->
+      <div id="interaction-box">
+            <!-- Add ngStyle for this -->
+            <div id="thumbs">
+                <span class="typcn typcn-thumbs-up ripple left">  
+
+                </span>
+                <span class="typcn typcn-thumbs-down ripple right">
+
+                </span>
+            </div>
+            <div class="trash">
+                <span class="typcn typcn-trash ripple"> 
+
+                </span> <!--TODO: Create Bages-->
+            </div>
+          <!-- <div id="comment"></div> -->
+        </div>
     </div>
   </div>
 </div>

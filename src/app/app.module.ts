@@ -20,6 +20,14 @@ import { LogInComponent } from './log-in/log-in.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { NgZorroAntdMobileModule } from 'ng-zorro-antd-mobile';
+import { SearchBarComponent } from './explore/search-bar/search-bar.component';
+import { UserService } from './services/user.service';
+import { PostService } from './services/post.service';
+import { StorageService } from './services/storage.service';
+import { UserprofileComponent } from './userprofile/userprofile.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
+import { ExploteTemplateComponent } from './explore/explote-template/explote-template.component';
 
 @NgModule({
    declarations: [
@@ -34,6 +42,9 @@ import { NgZorroAntdMobileModule } from 'ng-zorro-antd-mobile';
       SignUpComponent,
       LogInComponent,
       MainComponent,
+      SearchBarComponent,
+      UserprofileComponent,
+      ExploteTemplateComponent
    ],
    imports: [
       BrowserModule,
@@ -43,8 +54,10 @@ import { NgZorroAntdMobileModule } from 'ng-zorro-antd-mobile';
       BrowserAnimationsModule,
       HttpClientModule,
       NgZorroAntdMobileModule,
+      HttpClientModule,
+      ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
    ],
-   providers: [],
+   providers: [UserService, PostService, StorageService],
    schemas: [
 
    ],

@@ -21,7 +21,7 @@
     padding-left: 30px;
     padding-top: 10px;
     color: #082943;
-    font-size: xx-large;
+    font-size: 20px;
     font-weight: bolder;
     margin-bottom: 0;
 }
@@ -32,8 +32,8 @@
 #tag{
     margin: 0px;
     padding-left: 30px;
-    color: #082943;
-    font-size: small;
+    color: blue;
+    font-size: 15px;
 }
 #info-panel{
     background-color: whitesmoke;
@@ -81,4 +81,12 @@ h1,h2,h3,h4,h5,h6, p{
 }
 .card-wrapper{
     margin-bottom: 20px;
+}
+#bar{
+    display: flex;
+    flex-direction: row;
+}
+#bar .typcn{
+    margin-top: 68px;
+    margin-left: 27px;
 }

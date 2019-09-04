@@ -1,10 +1,20 @@
 h1, h2, h3, h4, h5{
     color: #082943;
 }
+
+h3{
+  font-size: 24px;
+}
 .form{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -60%);
+  width: 100%;
+  align-items: center;
 }
 .wrapper{
     width: 80%;
@@ -27,7 +37,7 @@ h1, h2, h3, h4, h5{
     background-color: #082943;
   }
   
-  form {
+  /* form {
     position: relative;
     display: inline-block;
     max-width: 700px;
@@ -42,7 +52,7 @@ h1, h2, h3, h4, h5{
     -ms-transform: translate(-50%, 0);
     -webkit-transform: translate(-50%, 0);
     transform: translate(-50%, 0);
-  }
+  } */
   form h1 {
     color: #082943;
     font-weight: 100;
@@ -52,21 +62,24 @@ h1, h2, h3, h4, h5{
     text-transform: uppercase;
   }
   form button {
-    margin-top: 35px;
-    background-color: white;
-    border: 1px solid #082943;
+    margin-top: 0;
+    margin-bottom: 25px;
+    border: 2px solid white;
     line-height: 0;
     font-size: 17px;
     display: inline-block;
     box-sizing: border-box;
     padding: 20px 15px;
-    border-radius: 60px;
+    border-radius: 8px;
     color: #082943;
     font-weight: 100;
     letter-spacing: 0.01em;
     position: relative;
     z-index: 1;
     outline: none;
+    width: 75%;
+    color: white;
+    background-color: #082943
   }
   form button:hover, form button:focus {
     color: white;
@@ -144,7 +157,7 @@ h1, h2, h3, h4, h5{
     padding-left: 35px;
     margin-bottom: 12px;
     cursor: pointer;
-    font-size: 22px;
+    font-size: 18px;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
@@ -210,6 +223,10 @@ h1, h2, h3, h4, h5{
   }
   .chks{
       margin-top: 25px;
+      margin-bottom: 25px;
       display: flex;
       flex-direction: row;
+  }
+  p {
+    font-size: 16px;
   }

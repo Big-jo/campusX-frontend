@@ -14,12 +14,12 @@
     display: flex;
     flex-direction: row;
     padding: 0px;
-    margin: 30px;
+    margin: 10px 30px 10px 30px;
     justify-content: space-between;
 }
 .avatar{
-    width: 60px;
-    height: 60px;
+    width: 40px;
+    height: 40px;
     border-radius: 20%;
 }
 .name{
@@ -31,12 +31,13 @@
 .btn-f-back{
     background-color: transparent;
     border: 1px solid #082943;
-    width: fit-content;
-    border-radius: 50px;
+    width: 25%;
+    border-radius: 6px;
     height: 30px;
     outline: none;
     margin-top: auto;
     margin-bottom: auto;
+    font-weight: bold;
 }
 .profile{
     display: flex;

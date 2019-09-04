@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-
+import { UserService } from '../services/user.service';
+import { Router } from '@angular/router';
+import { StorageService } from '../services/storage.service';
 interface IUser {
   name: string;
   email: string;
@@ -18,13 +20,13 @@ interface IUser {
 
 
 export class SignUpComponent implements OnInit {
-  constructor(form: FormsModule) { }
+  constructor(private userService: UserService, private router: Router, private storageService: StorageService) { }
 
   ngOnInit() {
   }
 
-  onSubmit(form){
-    
+  onSubmit(form) {
+
     const Form: IUser = {
       email: form.email,
       gender: this.CheckGender(form.male, form.female),
@@ -33,17 +35,16 @@ export class SignUpComponent implements OnInit {
       university: form.university,
       userTag: form.userTag,
     };
-    console.log(Form);
-    
-    // TODO: Create user service
-
+    this.userService.send(Form);
+    this.router.navigateByUrl('/userprofile');
   }
 
   private CheckGender(male, female) {
-    if (male === true){
+    if (male === true) {
       return 'male';
     } else {
       return 'female';
     }
   }
+  // TODO: Check if email exist before moving on to the other component
 }

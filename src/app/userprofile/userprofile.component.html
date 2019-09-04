@@ -1,0 +1,10 @@
+<div class="wrapper">
+  <form>
+    <h3 class="q">{{Displayed}}</h3>
+    <div class="question">
+      <input type="text" name="university" required  [(ngModel)]="answer"/>
+      {{answer}}
+    </div>
+    <span class="typcn typcn-arrow-right icon ripple" (click)="onNext(answer)"></span>
+  </form>
+</div>

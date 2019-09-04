@@ -2,6 +2,10 @@
 <form class="form" #form="ngForm" (ngSubmit)="onSubmit(form.value)">
     <!-- TODO: Bump up size of title -->
     <h3>Sign Up</h3>
+    <WhiteSpace></WhiteSpace>
+    <WhiteSpace></WhiteSpace>
+    <WhiteSpace></WhiteSpace>
+    <WhiteSpace></WhiteSpace>
   <div class="wrapper">
     <div class="question">
       <input type="text" name="name" required ngModel/>
@@ -27,7 +31,7 @@
   </div>
 
   <div class="chks">
-        <label class="container">Male
+        <label class="container" >Male
                 <input type="checkbox"  name="male" ngModel>
                 <span class="checkmark"></span>
         </label>
@@ -36,6 +40,6 @@
                 <span class="checkmark"></span>
         </label>
   </div>
-  <button type="submit">Submit</button>
+  <button type="submit" class="ripple">Submit</button>
   <p [routerLink]= '[""]'>Already Have An Account ?</p>
 </form>

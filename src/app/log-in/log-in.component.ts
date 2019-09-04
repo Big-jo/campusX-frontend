@@ -1,10 +1,19 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, Params } from '@angular/router';
 import { MainComponent } from '../main/main.component';
+import { UserService } from '../services/user.service';
+import { StorageService } from '../services/storage.service';
 
 interface IUser {
   email: string;
   password: string;
+}
+
+interface IResponse {
+  token: string;
+  userID: string;
+  success: string;
+  err: string;
 }
 @Component({
   selector: 'app-log-in',
@@ -12,10 +21,16 @@ interface IUser {
   styleUrls: ['./log-in.component.css']
 })
 export class LogInComponent implements OnInit {
-
-  constructor(private router: Router) { }
+  errStatement: string;
+  constructor(private router: Router,
+              private userService: UserService,
+              private storageService: StorageService) { }
 
   ngOnInit() {
+    // check local storage for token
+    if (this.storageService.GetLocal('jwt')) {
+      this.router.navigateByUrl('/main');
+    }
   }
 
   onSubmit(form) {
@@ -23,8 +38,18 @@ export class LogInComponent implements OnInit {
       email: form.email,
       password: form.password,
     };
-    // this.navigator.element.pushPage(LogInComponent, {animation: 'slide'});
-    this.router.navigateByUrl('/main');
+
+    this.userService.LoginUser(Form)
+      .subscribe((res: IResponse) => {
+        for (const key in res) {
+          if (res.hasOwnProperty(key)) {
+            this.storageService.StoreLocal(key, res[key]);
+          }
+        }
+        this.router.navigateByUrl('/main');
+      }, (error) => { // TODO: Create Interface for error
+        console.log(error.error.err);
+        this.errStatement = error.error.err;
+      });
   }
-  // TODO: Get token and store in local storage, if token isnt availbale re-route back here
 }

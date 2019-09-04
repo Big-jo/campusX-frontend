@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { IPost } from '../interfaces/Post';
 
 @Component({
   selector: 'app-card',
@@ -6,10 +7,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./card.component.css']
 })
 export class CardComponent implements OnInit {
+  @Input() post: IPost;
 
+  badge = {
+    'background-color': '#082945',
+  };
   constructor() { }
 
   ngOnInit() {
   }
+
 
 }
