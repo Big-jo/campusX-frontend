@@ -3,14 +3,17 @@
     flex-direction: column;
     margin-top: 75px !important;
 }
-.textarea{
-    width: 80%;
+#textarea{
+    width: 90%;
     background-color: white;
-    /* margin-left: 25px; */
     align-self: center !important;
+    resize: none;
+    height: 150px;
+    border-radius: 20px;
+    padding: 10px;
 }
 #media-box{
-    padding: 15px 45px 45px;
+    padding: 15px 45px 10px;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
@@ -31,10 +34,23 @@
 #anon{
     display: flex;
     flex-direction: row;
-    justify-content: space-between
+    justify-content: space-between;
+    margin-top: 20px;
 }
 .label{
-    margin-left: 50px;
+    margin-left: 12px;
+    margin-top: 5px;
+    font-weight: bold;
 }
-
+#switch{
+    padding-right: 10px;
+}
+.typcn{
+    font-size: 24px;
+}
+#btn-post{
+    width: 90%;
+    margin: auto;
+    margin-top: 22px;
+}
 /* TODO: Add a nie font */
