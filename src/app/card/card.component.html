@@ -2,11 +2,12 @@
   <div class="profile">
     <img
       class="profile-thumbnail"
-      [src]="post.avatar"
+      [src]="post.author.userProfile.avatar"
       style="width: 10%"
     />
+
     <div class="name">
-      <h3>{{post.name}}</h3> <span ><h5 style="color: blue">{{post.userTag}}</h5></span>
+      <h4>{{post.author.name}}</h4> <span ><h5 style="color: blue">{{post.userTag}}</h5></span>
     </div>
   </div>
 
