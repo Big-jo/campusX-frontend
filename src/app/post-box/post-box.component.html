@@ -2,20 +2,26 @@
 <div class="content">
   <div id="postBox">
     <textarea
-      class="textarea"
+      id="textarea"
       rows="5"
       cols="40"
-      placeholder="Any Gist ?"
+      placeholder="What's Up ?"
+      [(ngModel)]="post"
     ></textarea>
   </div>
   <div id="media-box">
+    <span class="typcn typcn-camera-outline ripple"></span>
+    <span class="typcn typcn-image-outline ripple"></span>
     <!-- TODO: Add Icons -->
   </div>
   <div id="control-box">
     <div id="anon">
         <p class="label">Post Anonnymously</p>
+        <Switch id="switch" [checked]="checked" (onChange)="check($event)" (onClick)="onClick($event)"></Switch>
+
         <!-- TODO: Add Switch -->
     </div>
     <!-- TODO: Add Outlined button -->
-</div>
+  </div>
+  <div id="btn-post" Button (click)="onPost(post)"><span class="typcn typcn-tick"></span></div>
 </div>
