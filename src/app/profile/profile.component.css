@@ -67,7 +67,7 @@
     text-align: center
 }
 #post-wrapper{
-    width: fit-content;
+    /* width: fit-content */
     padding: 15px;
 }
 .card{
