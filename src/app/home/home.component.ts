@@ -3,6 +3,10 @@ import { Router } from '@angular/router';
 import { PostService } from '../services/post.service';
 import { IPost } from '../interfaces/Post';
 
+interface Response {
+  posts: Array<IPost>;
+}
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -25,40 +29,40 @@ export class HomeComponent implements OnInit {
   items = [];
 
   Posts: Array<IPost>;
-
   constructor(private router: Router, private postService: PostService) {
-    this.Posts = [
-      {
-        avatar: 'http://placekitten.com/g/160/160',
-        dislikes: 0,
-        likes: 0,
-        name: 'Joseph Henshaw',
-        post: 'Lorem Something Something',
-        trash: 300,
-        userTag: '@henshaw'
-      },
-      {
-        avatar: 'http://placekitten.com/g/160/160',
-        dislikes: 10,
-        likes: 20,
-        name: 'John Doe',
-        post: 'jreomgtowgmgmfpovmses',
-        trash: 300,
-        userTag: '@ipps'
-      },
-      {
-        avatar: 'http://placekitten.com/g/160/160',
-        dislikes: 30,
-        likes: 20,
-        name: 'John Opions',
-        post: 'mmmimrwgntgnwuinivnwevionrnwov',
-        trash: 500,
-        userTag: '@tytu'
-      }
-    ];
+    // this.Posts = [
+    //   {
+    //     avatar: 'http://placekitten.com/g/160/160',
+    //     dislikes: 0,
+    //     likes: 0,
+    //     name: 'Joseph Henshaw',
+    //     post: 'Lorem Something Something',
+    //     trash: 300,
+    //     userTag: '@henshaw'
+    //   },
+    //   {
+    //     avatar: 'http://placekitten.com/g/160/160',
+    //     dislikes: 10,
+    //     likes: 20,
+    //     name: 'John Doe',
+    //     post: 'jreomgtowgmgmfpovmses',
+    //     trash: 300,
+    //     userTag: '@ipps'
+    //   },
+    //   {
+    //     avatar: 'http://placekitten.com/g/160/160',
+    //     dislikes: 30,
+    //     likes: 20,
+    //     name: 'John Opions',
+    //     post: 'mmmimrwgntgnwuinivnwevionrnwov',
+    //     trash: 500,
+    //     userTag: '@tytu'
+    //   }
+    // ];
    }
 
   ngOnInit() {
+    this.GetPost();
   }
 
   pullToRefresh(event) {
@@ -83,8 +87,10 @@ export class HomeComponent implements OnInit {
   }
 
   GetPost() {
-    this.postService.GetPost().subscribe((res) => {
-      // this.Posts = res.Posts
+    this.postService.GetPost(1).subscribe((res: Response) => {
+      this.Posts = res.posts;
+      console.log(res);
+
     });
   }
 }
