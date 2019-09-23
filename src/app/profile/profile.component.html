@@ -35,14 +35,10 @@
        <h3 style="margin-top: 40px; margin-left: 30px;">Posts</h3>
         <div id="post-wrapper">
           <div class="card-wrapper">
-            <app-card></app-card>
-          </div>
-          <div class="card-wrapper">
-              <app-card></app-card>
+            <div *ngFor="let post of Posts">
+              <app-card [post]="post"></app-card>
             </div>
-            <div class="card-wrapper">
-                <app-card ></app-card>
-              </div>
+          </div>
         </div>
     </div>
 </div>

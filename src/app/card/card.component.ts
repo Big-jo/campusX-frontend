@@ -8,13 +8,15 @@ import { IPost } from '../interfaces/Post';
 })
 export class CardComponent implements OnInit {
   @Input() post: IPost;
-
+  
+  
   badge = {
     'background-color': '#082945',
   };
   constructor() { }
 
   ngOnInit() {
+    console.log(this.post);
   }
 
 

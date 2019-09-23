@@ -7,29 +7,9 @@
       <h4>See What's Happing On Other Campuses</h4>
     </div>
     <div id="campuses-container">
-      <div class="listItems ">
+      <div class="listItems" *ngFor="let campus of Campuses">
         <div class="wrapper ripple">
-          <h4>Campus Name </h4>
-        </div>
-      </div>
-      <div class="listItems">
-        <div class="wrapper">
-          <h4>Campus Name </h4>
-        </div>
-      </div>
-      <div class="listItems">
-        <div class="wrapper">
-          <h4>Campus Name </h4>
-        </div>
-      </div>
-      <div class="listItems">
-        <div class="wrapper">
-          <h4>Campus Name </h4>
-        </div>
-      </div>
-      <div class="listItems">
-        <div class="wrapper">
-          <h4>Campus Name </h4>
+          <h4 [routerLink]="['/campus',campus.Name]">{{campus.Name}}</h4>
         </div>
       </div>
     </div>

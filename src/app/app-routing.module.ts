@@ -7,6 +7,7 @@ import { LogInComponent } from './log-in/log-in.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { LandingComponent } from './landing/landing.component';
 import { UserprofileComponent } from './userprofile/userprofile.component';
+import { ExploteTemplateComponent } from './explore/explote-template/explote-template.component';
 
 const routes: Routes = [
   {path: '', component: LandingComponent},
@@ -14,7 +15,8 @@ const routes: Routes = [
   {path: 'signUp', component: SignUpComponent},
   {path: 'main', component: MainComponent},
   {path: 'userprofile', component: UserprofileComponent},
-  {path: 'post', component: PostBoxComponent}
+  {path: 'post', component: PostBoxComponent},
+  {path: 'campus/:id', component: ExploteTemplateComponent}
 ];
 
 @NgModule({

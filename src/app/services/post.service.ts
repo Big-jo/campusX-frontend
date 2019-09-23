@@ -21,7 +21,7 @@ export class PostService {
 
   public GetPost(Key: number) {
     const key = Key; // To get self-post, key is set to 0, to get others key is set to one
-    return this.http.get(`${this.baseApi}/${this.getPost}/${this.userID}`);
+    return this.http.get(`${this.baseApi}/${this.getPost}/${key}/${this.userID}`);
   }
 
  public CreatePost(post) {
@@ -30,6 +30,10 @@ export class PostService {
      post,
    };
    return this.http.post(`${this.baseApi}/${this.createPost}`, postObject);
+ }
+
+ public GetCampusPost(id) {
+  return this.http.get(`${this.baseApi}/${this.getPost}/${id}`);
  }
 
 }

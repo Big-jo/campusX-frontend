@@ -1,4 +1,8 @@
-<p>
-  explote-template works!
-</p>
+<div id="toolbar">
+    <h3 style="text-align: center; padding: 10px;">{{Campus}}</h3>
+  <!-- Back Button And Name -->
+</div>
+<div *ngFor="let post of Posts">
+  <app-card [post]="post.post"></app-card>
+</div>
 <!-- Tweets related to the campus choosen -->

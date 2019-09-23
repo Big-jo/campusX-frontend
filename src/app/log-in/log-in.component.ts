@@ -28,7 +28,7 @@ export class LogInComponent implements OnInit {
 
   ngOnInit() {
     // check local storage for token
-    if (this.storageService.GetLocal('jwt')) {
+    if (this.storageService.GetLocal('token')) {
       this.router.navigateByUrl('/main');
     }
   }

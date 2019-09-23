@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../services/user.service';
 import { PostService } from '../services/post.service';
-
+import {IPost} from '../interfaces/Post';
 interface IUser {
   email: string;
   followers: [];
@@ -18,6 +18,7 @@ interface IUser {
 }
 interface IResponse{
  user: IUser;
+ posts: Array<IPost>;
 }
 
 @Component({
@@ -27,15 +28,19 @@ interface IResponse{
 })
 export class ProfileComponent implements OnInit {
   User: IUser;
+  Posts: Array<IPost>;
   constructor(private userService: UserService, private postService: PostService) { }
 
   ngOnInit() {
     this.userService.GetUserInfo()
-      .subscribe((res: IResponse) => { 
+      .subscribe((res: IResponse) => {
         console.log(res);
         this.User = res.user;
       });
 
-    this.postService.GetPost(0)
+    this.postService.GetPost(0).subscribe((res: IResponse) => {
+      console.log(res);
+      this.Posts = res.posts;
+    });
   }
 }

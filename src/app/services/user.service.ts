@@ -15,7 +15,7 @@ export class UserService {
   Current = this.Source.asObservable();
   constructor(private http: HttpClient, private storageService: StorageService) {}
 
-  private userID = this.storageService.GetLocal('userID')
+  private userID = this.storageService.GetLocal('userID');
 
   public CreateUser(form) {
     return this.http.post(`${this.baseApi}/${this.user}/create`, form);
