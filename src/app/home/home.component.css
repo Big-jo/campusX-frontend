@@ -24,3 +24,20 @@
 .typcn{
     color: white;
 }
+#Empty-home{
+    display: flex;
+    flex-direction: column;
+    /* margin: 0; */
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, 52%);
+    width: 100%;
+    align-items: center;
+}
+.btn {
+    background-color: #082943;
+    width: 50%;
+    margin-top: 15px;
+    font-family: 'Montserrat', sans-serif
+}

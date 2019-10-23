@@ -30,7 +30,9 @@
               "node_modules/plyr/dist/plyr.css",
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/plyr/src/js/plyr.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -88,7 +90,8 @@
             "assets": [
               "src/favicon.ico",
               "src/assets",
-              "src/manifest.webmanifest"
+              "src/manifest.webmanifest",
+              "src/_redirects"
             ],
             "styles": [
               "node_modules/ng-zorro-antd-mobile/src/ng-zorro-antd-mobile.min.css",

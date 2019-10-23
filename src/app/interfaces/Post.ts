@@ -1,10 +1,11 @@
 export interface IPost {
-
-  post: string;
   likes: number;
   dislikes: number;
   trash: number;
+  post: string;
+  videoSrc: string;
   author: {
+    _id: string;
     name: string,
     userProfile: {
     avatar: string,

@@ -1,0 +1,38 @@
+<div class="head-title">
+  <span class="back"></span>
+  <h3>Explore</h3>
+</div>
+<Accordion >
+  <AccordionPanel class="panel" [key]="'0'" [header]="'On Your Campus'">
+      <div *ngFor="let user1 of Users1">
+        <div class="card">
+          <div class="profile">
+            <img [src]="user1.userProfile" alt="" class="avatar">
+            <div class="creds">
+              <span class="name" [routerLink]="[ '/profile', user1.id ]">{{user1.name}}</span>
+              <span class="tag"> {{user1.userTag}}</span>
+            </div>
+            <button class="btn-f ripple" (click)="follow(user1.id)"><span>follow</span></button>
+          </div>
+        </div>
+      </div>
+      <div Button class="ripple"
+        style="bottom: 0; position: fixed; width: 100%; background-color: #082943; color: white;"> Invite Friends</div>
+  </AccordionPanel>
+  <AccordionPanel class="panel" [key]="'1'" [header]="'Other Campuses'">
+    <div *ngFor="let user2 of Users2">
+      <div class="card" >
+        <div class="profile">
+          <img src="http://placekitten.com/g/60/60" alt="" class="avatar">
+          <div class="creds">
+            <span class="name" [routerLink]="[ '/profile', user2.id ]"> {{user2.name}} </span>
+            <span class="tag"> {{user2.userTag}}</span>
+          </div>
+          <button class="btn-f ripple" (click)="follow(user2.id)"><span>follow</span></button>
+        </div>
+      </div>
+    </div>
+    <div Button class="ripple"
+      style="bottom: 0; position: fixed; width: 100%; background-color: #082943; color: white;"> Invite Friends</div>
+</AccordionPanel>
+</Accordion>

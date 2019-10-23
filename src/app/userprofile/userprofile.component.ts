@@ -72,7 +72,7 @@ export class UserprofileComponent implements OnInit {
           level: this.Questions[0].a,
           department: this.Questions[1].a,
           bio: this.Questions[2].a,
-          univeristy: this.signUpForm.university,
+          university: this.signUpForm.university,
           gender: this.signUpForm.gender,
         };
         // Join both forms

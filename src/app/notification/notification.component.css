@@ -1,10 +1,4 @@
-#head-title h3{
-    color: #082943;
-    font-size: x-large;
-    font-weight: bolder;
-    padding: 30px 15px 20px 0px;
-    margin-left: 30px;
-}
+
 #listPanel{
     display: flex;
     flex-direction: column;
@@ -29,8 +23,9 @@
      
 }
 .btn-f-back{
-    background-color: transparent;
-    border: 1px solid #082943;
+    color: white;
+    background-color: #082943;
+    border: 1px solid white;
     width: 25%;
     border-radius: 6px;
     height: 30px;

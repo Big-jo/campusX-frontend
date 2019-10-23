@@ -50,10 +50,11 @@ h1,h2,h3,h4,h5,h6, p {
 }
 .typcn-trash{
     position: absolute;
-    left: 253px;
+    left: 199px;
+    flex: 1 0 auto;
 }
 .typcn{
-    font-size: 19px;
+    font-size: 20px;
     color:  #082945;
 }
 #ld{
@@ -64,5 +65,13 @@ p{
     word-wrap: break-word;
 }
 .badge{
-    color: #082945;
+    color: white;
+    border-radius: 50%;
+    background-color: #082945;
+    padding: 7px 8px 7px 8px;
+    font-size: 10px;
+}
+.player{
+    border-radius: 25px;
+    margin: 20px 0px 20px 0px;
 }

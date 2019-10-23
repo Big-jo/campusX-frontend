@@ -7,7 +7,7 @@
     />
 
     <div class="name">
-      <h4>{{post.author.name}}</h4> <span ><h5 style="color: blue">{{post.author.userProfile.userTag}}</h5></span>
+      <h4 [routerLink]="[ '/profile', post.author._id ]">{{post.author.name}}</h4> <span ><h5 style="color: blue">{{post.author.userProfile.userTag}}</h5></span>
     </div>
   </div>
 
@@ -16,14 +16,17 @@
       <div class="post">
           <p>{{post.post}}</p>
       </div>
+      <div class="player" *ngIf="post.videoSrc">
+        <div plyr  [plyrPlaysInline]="true" [plyrSources]="videoSources" (plyrInit)="player = $event" (plyrPlay)="played($event)"></div>
+      </div>
       <div id="interaction-box">
             <!-- Add ngStyle for this -->
             <div id="thumbs">
                 <span class="typcn typcn-thumbs-up ripple left">  
-
+                  <span class="badge">30</span>
                 </span>
                 <span class="typcn typcn-thumbs-down ripple right">
-
+                    <span class="badge">10</span>
                 </span>
             </div>
             <div class="trash">

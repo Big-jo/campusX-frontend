@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from '../services/user.service';
 import { PostService } from '../services/post.service';
 import {IPost} from '../interfaces/Post';
-interface IUser {
+import { ActivatedRoute, ParamMap } from '@angular/router';
+export interface IUser {
+  _id: string;
   email: string;
   followers: [];
   followings: [];
@@ -16,9 +18,15 @@ interface IUser {
   userTag: string;
   visits: number;
 }
-interface IResponse{
+interface IResponse {
  user: IUser;
  posts: Array<IPost>;
+}
+
+interface IParams extends ParamMap {
+  params: {
+    id: string
+  };
 }
 
 @Component({
@@ -29,10 +37,16 @@ interface IResponse{
 export class ProfileComponent implements OnInit {
   User: IUser;
   Posts: Array<IPost>;
-  constructor(private userService: UserService, private postService: PostService) { }
+  UserId;
+  constructor(private userService: UserService, private postService: PostService, private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.userService.GetUserInfo()
+    this.route.paramMap.subscribe((params: IParams) => {
+      this.UserId = params.params.id;
+      console.log(this.UserId);
+    // Use this component to get all profile relate stuff
+    });
+    this.userService.GetUser('user', this.UserId)
       .subscribe((res: IResponse) => {
         console.log(res);
         this.User = res.user;

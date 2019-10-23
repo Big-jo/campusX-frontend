@@ -30,39 +30,11 @@ export class HomeComponent implements OnInit {
 
   Posts: Array<IPost>;
   constructor(private router: Router, private postService: PostService) {
-    // this.Posts = [
-    //   {
-    //     avatar: 'http://placekitten.com/g/160/160',
-    //     dislikes: 0,
-    //     likes: 0,
-    //     name: 'Joseph Henshaw',
-    //     post: 'Lorem Something Something',
-    //     trash: 300,
-    //     userTag: '@henshaw'
-    //   },
-    //   {
-    //     avatar: 'http://placekitten.com/g/160/160',
-    //     dislikes: 10,
-    //     likes: 20,
-    //     name: 'John Doe',
-    //     post: 'jreomgtowgmgmfpovmses',
-    //     trash: 300,
-    //     userTag: '@ipps'
-    //   },
-    //   {
-    //     avatar: 'http://placekitten.com/g/160/160',
-    //     dislikes: 30,
-    //     likes: 20,
-    //     name: 'John Opions',
-    //     post: 'mmmimrwgntgnwuinivnwevionrnwov',
-    //     trash: 500,
-    //     userTag: '@tytu'
-    //   }
-    // ];
+  
    }
 
   ngOnInit() {
-    this.GetPost();
+    // this.GetPost();
   }
 
   pullToRefresh(event) {

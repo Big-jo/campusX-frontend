@@ -39,3 +39,9 @@ h1,h2,h3,h4,h5,h6, p{
     opacity: .3;
     transition: 0s;
   }
+  .head-title{
+    box-sizing: border-box;
+    text-align: center; 
+    margin: 5px; 
+    padding: 10px;
+}

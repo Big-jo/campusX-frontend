@@ -1,5 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { IPost } from '../interfaces/Post';
+import { PlyrComponent } from 'ngx-plyr';
+import * as Plyr from 'plyr';
 
 @Component({
   selector: 'app-card',
@@ -8,15 +10,33 @@ import { IPost } from '../interfaces/Post';
 })
 export class CardComponent implements OnInit {
   @Input() post: IPost;
-  
-  
+  @ViewChild(PlyrComponent, {static: true}) plyr: PlyrComponent;
+
   badge = {
     'background-color': '#082945',
   };
-  constructor() { }
+
+  videoSources: Plyr.Source[];
+  constructor() {
+
+  }
+
 
   ngOnInit() {
-    console.log(this.post);
+    // Check if post contains a video
+      this.videoSources = [
+        {
+          src: this.post.videoSrc,
+        }
+      ];
+  }
+
+  played(event: Plyr.PlyrEvent) {
+    console.log('played', event);
+  }
+
+  play(): void {
+    this.plyr.player.play();
   }
 
 

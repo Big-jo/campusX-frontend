@@ -28,6 +28,8 @@ import { UserprofileComponent } from './userprofile/userprofile.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { ExploteTemplateComponent } from './explore/explote-template/explote-template.component';
+import { ExploreFriendsComponent } from './explore/explore-friends/explore-friends.component';
+import { ImageUploadComponent } from './image-upload/image-upload.component';
 
 @NgModule({
    declarations: [
@@ -44,7 +46,9 @@ import { ExploteTemplateComponent } from './explore/explote-template/explote-tem
       MainComponent,
       SearchBarComponent,
       UserprofileComponent,
-      ExploteTemplateComponent
+      ExploteTemplateComponent,
+      ExploreFriendsComponent,
+      ImageUploadComponent
    ],
    imports: [
       BrowserModule,

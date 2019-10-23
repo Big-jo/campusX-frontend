@@ -28,9 +28,17 @@ export class UserService {
   send(object) {
     this.Source.next(object);
   }
-
+  // TODO: Rename this method
   public GetUserInfo() {
     return this.http.get(`${this.baseApi}/${this.user}/${this.getUser}/${this.userID}/me`);
   }
 
+  public GetUser(key: string, id: string) {
+    return this.http.get(`${this.baseApi}/${this.user}/${this.getUser}/${key}/${id}/${this.userID}`);
+  }
+  
+  // // Get users from own campus and other campuses
+  // public Explore(id: string) {
+  //   return this.http.get(`${this.baseApi}/${this.user}/explore/${id}`);
+  // }
 }

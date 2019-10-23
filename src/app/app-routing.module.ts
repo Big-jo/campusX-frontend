@@ -8,6 +8,8 @@ import { SignUpComponent } from './sign-up/sign-up.component';
 import { LandingComponent } from './landing/landing.component';
 import { UserprofileComponent } from './userprofile/userprofile.component';
 import { ExploteTemplateComponent } from './explore/explote-template/explote-template.component';
+import { ExploreFriendsComponent } from './explore/explore-friends/explore-friends.component';
+import { ProfileComponent } from './profile/profile.component';
 
 const routes: Routes = [
   {path: '', component: LandingComponent},
@@ -16,7 +18,9 @@ const routes: Routes = [
   {path: 'main', component: MainComponent},
   {path: 'userprofile', component: UserprofileComponent},
   {path: 'post', component: PostBoxComponent},
-  {path: 'campus/:id', component: ExploteTemplateComponent}
+  {path: 'campus/:id', component: ExploteTemplateComponent},
+  {path: 'explore-friends', component: ExploreFriendsComponent},
+  {path: 'profile/:id', component: ProfileComponent}
 ];
 
 @NgModule({

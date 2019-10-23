@@ -1,4 +1,5 @@
 <!-- TODO: Add Back button -->
+<h3 style="text-align: center; padding: 10px;">Post</h3>
 <div class="content">
   <div id="postBox">
     <textarea
@@ -11,14 +12,13 @@
   </div>
   <div id="media-box">
     <span class="typcn typcn-camera-outline ripple"></span>
-    <span class="typcn typcn-image-outline ripple"></span>
+      <app-image-upload ></app-image-upload>
     <!-- TODO: Add Icons -->
   </div>
   <div id="control-box">
     <div id="anon">
         <p class="label">Post Anonnymously</p>
         <Switch id="switch" [checked]="checked" (onChange)="check($event)" (onClick)="onClick($event)"></Switch>
-
         <!-- TODO: Add Switch -->
     </div>
     <!-- TODO: Add Outlined button -->
