@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { PostService } from 'src/app/services/post.service';
 import { IPost } from 'src/app/interfaces/Post';
+import { Location } from '@angular/common';
 
 interface IParams extends ParamMap{
   params: {
@@ -21,7 +22,7 @@ interface IResponse {
 export class ExploteTemplateComponent implements OnInit {
   Posts: Array<IPost>;
   Campus: string;
-  constructor(private route: ActivatedRoute, private postService: PostService) { }
+  constructor(private route: ActivatedRoute, private postService: PostService, private location: Location) { }
 
   ngOnInit() {
     this.route.paramMap.subscribe((params: IParams) => {
@@ -31,6 +32,10 @@ export class ExploteTemplateComponent implements OnInit {
           this.Posts = res.posts;
         });
     });
+  }
+
+  private PreviousPage() {
+    this.location.back();
   }
 
 }

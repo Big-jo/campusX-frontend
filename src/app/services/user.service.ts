@@ -7,13 +7,13 @@ import { StorageService } from './storage.service';
   providedIn: 'root'
 })
 export class UserService {
- private baseApi = 'http://localhost:3000/campusx/api/v1';
- private user = 'users';
- private getUser = 'getUser';
+  private baseApi = 'http://localhost:3000/api/v1';
+  private user = 'users';
+  private getUser = 'getUser';
 
   private Source = new BehaviorSubject('default');
   Current = this.Source.asObservable();
-  constructor(private http: HttpClient, private storageService: StorageService) {}
+  constructor(private http: HttpClient, private storageService: StorageService) { }
 
   private userID = this.storageService.GetLocal('userID');
 
@@ -33,12 +33,17 @@ export class UserService {
     return this.http.get(`${this.baseApi}/${this.user}/${this.getUser}/${this.userID}/me`);
   }
 
-  public GetUser(key: string, id: string) {
-    return this.http.get(`${this.baseApi}/${this.user}/${this.getUser}/${key}/${id}/${this.userID}`);
+  public GetUser(user: string, searchKey: string) {
+    return this.http.get(`${this.baseApi}/${this.user}/${this.getUser}/${user}/${searchKey}`);
   }
-  
-  // // Get users from own campus and other campuses
-  // public Explore(id: string) {
-  //   return this.http.get(`${this.baseApi}/${this.user}/explore/${id}`);
-  // }
+
+  // Get users from own campus and other campuses
+  public Explore() {
+    return this.http.get(`${this.baseApi}/${this.user}/explore`);
+  }
+
+  // follow another user
+  public Follow(targetID: string) {
+    return this.http.post(`${this.baseApi}/${this.user}/follow`, {targetID});
+  }
 }

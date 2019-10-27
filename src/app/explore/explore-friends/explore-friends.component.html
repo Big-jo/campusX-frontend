@@ -1,18 +1,21 @@
 <div class="head-title">
-  <span class="back"></span>
-  <h3>Explore</h3>
+  <h3><span class="typcn typcn-arrow-left left" (click)="PreviousPage()"></span> Explore</h3>
 </div>
 <Accordion >
   <AccordionPanel class="panel" [key]="'0'" [header]="'On Your Campus'">
       <div *ngFor="let user1 of Users1">
+       
         <div class="card">
           <div class="profile">
             <img [src]="user1.userProfile" alt="" class="avatar">
             <div class="creds">
-              <span class="name" [routerLink]="[ '/profile', user1.id ]">{{user1.name}}</span>
+              <span class="name" [routerLink]="[ '/profile', user1._id ]">{{user1.name}}</span>
               <span class="tag"> {{user1.userTag}}</span>
             </div>
-            <button class="btn-f ripple" (click)="follow(user1.id)"><span>follow</span></button>
+        
+            <div *ngIf="user1._id !== userID">
+                <button class="btn-f ripple" (click)="follow(user1._id, user1.userTag)"><span>follow</span></button>
+            </div>
           </div>
         </div>
       </div>
@@ -25,10 +28,10 @@
         <div class="profile">
           <img src="http://placekitten.com/g/60/60" alt="" class="avatar">
           <div class="creds">
-            <span class="name" [routerLink]="[ '/profile', user2.id ]"> {{user2.name}} </span>
+            <span class="name" [routerLink]="[ '/profile', user2._id ]"> {{user2.name}} </span>
             <span class="tag"> {{user2.userTag}}</span>
           </div>
-          <button class="btn-f ripple" (click)="follow(user2.id)"><span>follow</span></button>
+          <button class="btn-f ripple" (click)="follow(user2._id)"><span>follow</span></button>
         </div>
       </div>
     </div>

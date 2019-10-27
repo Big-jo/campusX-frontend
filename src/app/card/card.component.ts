@@ -26,7 +26,7 @@ export class CardComponent implements OnInit {
     // Check if post contains a video
       this.videoSources = [
         {
-          src: this.post.videoSrc,
+          src: this.post.video,
         }
       ];
   }

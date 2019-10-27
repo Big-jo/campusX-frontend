@@ -1,8 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule} from '@angular/core';
+import { NgModule } from '@angular/core';
 
 import { FormsModule } from '@angular/forms';
-import {PlyrModule} from 'ngx-plyr';
+import { PlyrModule } from 'ngx-plyr';
 // import {OnsenModule} from 'ngx-onsenui';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -18,6 +18,7 @@ import { LandingComponent } from './landing/landing.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { LogInComponent } from './log-in/log-in.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { JwtModule } from '@auth0/angular-jwt';
 import { HttpClientModule } from '@angular/common/http';
 import { NgZorroAntdMobileModule } from 'ng-zorro-antd-mobile';
 import { SearchBarComponent } from './explore/search-bar/search-bar.component';
@@ -30,6 +31,11 @@ import { environment } from '../environments/environment';
 import { ExploteTemplateComponent } from './explore/explote-template/explote-template.component';
 import { ExploreFriendsComponent } from './explore/explore-friends/explore-friends.component';
 import { ImageUploadComponent } from './image-upload/image-upload.component';
+
+
+export function tokenGetter() {
+   return localStorage.getItem('token');
+}
 
 @NgModule({
    declarations: [
@@ -57,6 +63,13 @@ import { ImageUploadComponent } from './image-upload/image-upload.component';
       PlyrModule,
       BrowserAnimationsModule,
       HttpClientModule,
+      JwtModule.forRoot({
+         config: {
+            tokenGetter,
+            whitelistedDomains: ['localhost:3000'],
+            blacklistedRoutes: []
+         }
+      }),
       NgZorroAntdMobileModule,
       HttpClientModule,
       ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),

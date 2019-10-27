@@ -3,7 +3,9 @@ export interface IPost {
   dislikes: number;
   trash: number;
   post: string;
-  videoSrc: string;
+  video: string;
+  image: string;
+  text: string;
   author: {
     _id: string;
     name: string,

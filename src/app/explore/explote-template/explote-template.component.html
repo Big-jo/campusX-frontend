@@ -1,6 +1,5 @@
-<div id="toolbar">
-    <h3 style="text-align: center; padding: 10px;">{{Campus}}</h3>
-  <!-- Back Button And Name -->
+<div class="head-title">
+    <h3> <span class="typcn typcn-arrow-left left" (click)="PreviousPage()"></span>{{Campus}}</h3>
 </div>
 <div *ngFor="let post of Posts">
   <app-card [post]="post.post"></app-card>

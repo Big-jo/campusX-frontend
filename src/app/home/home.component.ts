@@ -30,11 +30,11 @@ export class HomeComponent implements OnInit {
 
   Posts: Array<IPost>;
   constructor(private router: Router, private postService: PostService) {
-  
+
    }
 
   ngOnInit() {
-    // this.GetPost();
+    this.GetPost();
   }
 
   pullToRefresh(event) {
@@ -59,9 +59,9 @@ export class HomeComponent implements OnInit {
   }
 
   GetPost() {
-    this.postService.GetPost(1).subscribe((res: Response) => {
-      this.Posts = res.posts;
+    this.postService.GetPost(1, localStorage.getItem('userID')).subscribe((res: Response) => {
       console.log(res);
+      this.Posts = res.posts;
 
     });
   }

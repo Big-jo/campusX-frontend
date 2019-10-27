@@ -3,6 +3,7 @@ import { UserService } from '../services/user.service';
 import { PostService } from '../services/post.service';
 import {IPost} from '../interfaces/Post';
 import { ActivatedRoute, ParamMap } from '@angular/router';
+import { Location } from '@angular/common';
 export interface IUser {
   _id: string;
   email: string;
@@ -38,23 +39,27 @@ export class ProfileComponent implements OnInit {
   User: IUser;
   Posts: Array<IPost>;
   UserId;
-  constructor(private userService: UserService, private postService: PostService, private route: ActivatedRoute) { }
+  // tslint:disable-next-line: max-line-length
+  constructor(private userService: UserService, private postService: PostService, private route: ActivatedRoute, private location: Location) { }
 
   ngOnInit() {
     this.route.paramMap.subscribe((params: IParams) => {
       this.UserId = params.params.id;
-      console.log(this.UserId);
     // Use this component to get all profile relate stuff
     });
-    this.userService.GetUser('user', this.UserId)
+    if (this.UserId === '') { this.UserId = localStorage.getItem('userID'); }
+    this.userService.GetUser(this.UserId, '1')
       .subscribe((res: IResponse) => {
         console.log(res);
         this.User = res.user;
       });
 
-    this.postService.GetPost(0).subscribe((res: IResponse) => {
-      console.log(res);
+    this.postService.GetPost(0, this.UserId).subscribe((res: IResponse) => {
       this.Posts = res.posts;
     });
+  }
+
+  PreviousPage() {
+    this.location.back();
   }
 }

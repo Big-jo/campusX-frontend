@@ -14,7 +14,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class CampusService {
-  private baseApi = 'http://localhost:3000/campusx/api/v1/users';
+  private baseApi = 'http://localhost:3000/api/v1/users';
   private getCampuses = 'getcampuses';
 
   constructor(private http: HttpClient) { }

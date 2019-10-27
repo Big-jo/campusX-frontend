@@ -14,7 +14,7 @@
   <div class="content">
     <div id="content-box">
       <div class="post">
-          <p>{{post.post}}</p>
+          <p>{{post.text}}</p>
       </div>
       <div class="player" *ngIf="post.videoSrc">
         <div plyr  [plyrPlaysInline]="true" [plyrSources]="videoSources" (plyrInit)="player = $event" (plyrPlay)="played($event)"></div>
@@ -23,15 +23,15 @@
             <!-- Add ngStyle for this -->
             <div id="thumbs">
                 <span class="typcn typcn-thumbs-up ripple left">  
-                  <span class="badge">30</span>
+                  <span class="badge">{{post.likes}}</span>
                 </span>
                 <span class="typcn typcn-thumbs-down ripple right">
-                    <span class="badge">10</span>
+                    <span class="badge">{{post.dislikes}}</span>
                 </span>
             </div>
             <div class="trash">
                 <span class="typcn typcn-trash ripple"> 
-
+                  
                 </span> <!--TODO: Create Bages-->
             </div>
           <!-- <div id="comment"></div> -->

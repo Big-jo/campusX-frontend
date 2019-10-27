@@ -93,3 +93,9 @@ h1,h2,h3,h4,h5,h6, p{
     margin-top: 68px;
     margin-left: 27px;
 }
+
+.left{
+    position: relative;
+    right: 130px;
+    font-size: 16px;
+}

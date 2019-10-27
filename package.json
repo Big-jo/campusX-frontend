@@ -21,6 +21,7 @@
     "@angular/pwa": "^0.803.14",
     "@angular/router": "~8.0.1",
     "@angular/service-worker": "~8.0.1",
+    "@auth0/angular-jwt": "^3.0.0",
     "bootstrap": "^4.3.1",
     "ng-zorro-antd-mobile": "^1.0.1",
     "ngx-plyr": "^3.0.1",

@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
 import { UserService } from 'src/app/services/user.service';
+import { Response } from 'selenium-webdriver/http';
 
 interface IUser {
-  id: string;
+  _id: string;
   email: string;
   name: string;
   userProfile: {
@@ -26,21 +27,24 @@ interface IResponse {
 export class ExploreFriendsComponent implements OnInit {
   Users1: IUser[]; // Users from same campus
   Users2: IUser[]; // Users from other campuses
-
+  userID: string;
   constructor(private location: Location, private userService: UserService) {
-    this.Users1 = [];
-    this.Users2 = [];
+    this.userID = localStorage.getItem('userID');
+    this.userService.Explore().subscribe((res: IResponse) => {
+        console.log(res.onCampus);
+        this.Users1 = res.onCampus;
+        this.Users2 = res.otherCampuses;
+      });
   }
   ngOnInit() {
-    this.userService.Explore()
-      .subscribe((res: IResponse) => {
-        console.log(res);
-
-      })
   }
 
-  follow(id) {
+  follow(targetID, userTag) {
     // User service to follow
+    this.userService.Follow(targetID).subscribe((res: Response) => {
+      console.log(res);
+      // display message
+    });
   }
   PreviousPage() {
     this.location.back();

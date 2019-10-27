@@ -19,22 +19,21 @@ export class MainComponent implements OnInit {
   constructor(private router: Router, private storageService: StorageService) { }
 
   ngOnInit() {
-    console.log(this.storageService.GetLocal('jwt'));
     if (this.storageService.GetLocal('token') === null) {
       this.router.navigateByUrl('/login');
     }
   }
 
   onChange(item) {
-    console.log('onChange', item);
+    // console.log('onChange', item);
   }
 
   onTabClick(item) {
-    console.log('onTabClick', item);
+    // console.log('onTabClick', item);
   }
 
   selectCard(e) {
-    console.log(' ', JSON.stringify(e));
+    // console.log(' ', JSON.stringify(e));
   }
 
   changeIndex() {
