@@ -22,9 +22,7 @@ export class ExploreComponent implements OnInit {
   constructor(private campusService: CampusService) { }
 
   ngOnInit() {
-    this.campusService.GetCampuses()
-      .subscribe((res: IResponse) => {
-        console.log(res);
+    this.campusService.GetCampuses().subscribe((res: IResponse) => {
         this.Campuses = res.campuses;
       });
   }
