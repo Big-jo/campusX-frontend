@@ -21,6 +21,6 @@ export class CampusService {
   constructor(private http: HttpClient) { }
 
   GetCampuses() {
-    return this.http.get(`${this.baseApi}/${this.getCampuses}`);
+    return this.http.get(`${this.baseApi}/users/${this.getCampuses}`);
   }
 }
