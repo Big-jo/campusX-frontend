@@ -7,14 +7,14 @@ import {
 import {
   StorageService
 } from './storage.service';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PostService {
-  // https://campusx.herokuapp.com
   constructor(private http: HttpClient, private storageService: StorageService) {}
-  private baseApi = 'https://campusx.herokuapp.com/api/v1/post';
+  private baseApi = environment.postBaseApi;
   private getPost = 'getposts';
   private createPost = 'create';
   private userID  = this.storageService.GetLocal('userID');

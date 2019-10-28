@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
 // export interface ICampuses {
 //   // campuses: [
@@ -14,7 +15,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class CampusService {
-  private baseApi = 'http://localhost:3000/api/v1/users';
+  private baseApi = environment.baseApi;
   private getCampuses = 'getcampuses';
 
   constructor(private http: HttpClient) { }

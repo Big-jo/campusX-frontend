@@ -2,12 +2,12 @@ import { Injectable, EventEmitter } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject } from 'rxjs';
 import { StorageService } from './storage.service';
-
+import {environment} from '../../environments/environment';
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
-  private baseApi = 'https://campusx.herokuapp.com/api/v1';
+  private baseApi = environment.baseApi;
   private user = 'users';
   private getUser = 'getUser';
 
