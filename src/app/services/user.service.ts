@@ -7,7 +7,7 @@ import { StorageService } from './storage.service';
   providedIn: 'root'
 })
 export class UserService {
-  private baseApi = 'http://localhost:3000/api/v1';
+  private baseApi = 'https://campusx.herokuapp.com/api/v1';
   private user = 'users';
   private getUser = 'getUser';
 
