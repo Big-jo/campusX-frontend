@@ -19,7 +19,7 @@
 }
 #name{
     padding-left: 30px;
-    padding-top: 10px;
+    padding-top: 0px;
     color: #082943;
     font-size: 20px;
     font-weight: bolder;
@@ -98,4 +98,15 @@ h1,h2,h3,h4,h5,h6, p{
     position: relative;
     right: 130px;
     font-size: 16px;
+}
+#profile-settings{
+    display: flex;
+    flex-direction: row;   
+    margin: 15px 0px 0px 149px;
+    position: relative;
+    bottom: 30px;
+}
+#Edit{
+    width: 50%;
+    padding: 0px;
 }
