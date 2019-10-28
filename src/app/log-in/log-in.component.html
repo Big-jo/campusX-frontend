@@ -13,10 +13,13 @@
     </div>
   </div>
   <!-- Style the err message -->
-  {{errStatement}} 
-  <button type="submit" class="ripple">Log In</button>
+  
+  <!-- <div Button [loading]= "true" >Log In</div> -->
+  <button type="submit" class="ripple" >Log In</button>
 <WhiteSpace></WhiteSpace>
 <WhiteSpace></WhiteSpace>
  <p [routerLink]='["/signUp"]' >Don't have an account ?</p>
 </form>
+<ActivityIndicator [toast]="true" [text]="'Loading...'" [animating]="animating"></ActivityIndicator>
+<notifier-container ></notifier-container>
 <!-- <ons-navigator swipeable [page]="page"></ons-navigator> -->

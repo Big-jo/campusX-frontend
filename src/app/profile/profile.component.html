@@ -6,7 +6,7 @@
     <!-- Content of the page -->
     <div id="profile-head">
       <div id="avatar-panel">
-        <img id="avatar" src="http://placekitten.com/g/160/160" alt="" srcset="">
+        <img id="avatar" [src]="User.userProfile.avatar" alt="{{User.name}}" srcset="">
         <div id="alias">
           <h1 id="name">{{User.name}}</h1>
           <h6 id="tag">{{User.userTag}}</h6>

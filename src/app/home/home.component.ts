@@ -27,8 +27,8 @@ export class HomeComponent implements OnInit {
   dtPullToRefreshStyle = { height: this.state.height + 'px' };
   message = 'Pull down to refresh';
   items = [];
-
   Posts: Array<IPost>;
+
   constructor(private router: Router, private postService: PostService) {
 
    }
@@ -62,7 +62,6 @@ export class HomeComponent implements OnInit {
     this.postService.GetPost(1, localStorage.getItem('userID')).subscribe((res: Response) => {
       console.log(res);
       this.Posts = res.posts;
-
     });
   }
 }

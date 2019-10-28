@@ -5,7 +5,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class ImageService {
-  private baseApi = 'http://localhost:3000/api/v1';
+  private baseApi = 'https://campusx.herokuapp.com/api/v1';
   private image = 'image';
   private upload = 'upload';
   constructor(private http: HttpClient) { }

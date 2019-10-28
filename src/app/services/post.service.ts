@@ -12,7 +12,7 @@ import {
   providedIn: 'root'
 })
 export class PostService {
-
+  // https://campusx.herokuapp.com
   constructor(private http: HttpClient, private storageService: StorageService) {}
   private baseApi = 'http://localhost:3000/api/v1/post';
   private getPost = 'getposts';

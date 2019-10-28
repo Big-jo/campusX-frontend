@@ -11,6 +11,7 @@ export interface IUser {
   followings: [];
   name: string;
   userProfile: {
+    avatar: string;
     gender: string
     level: number;
     rep_points: number;
@@ -20,7 +21,7 @@ export interface IUser {
   visits: number;
 }
 interface IResponse {
- user: IUser;
+  user: IUser;
  posts: Array<IPost>;
 }
 
@@ -45,14 +46,15 @@ export class ProfileComponent implements OnInit {
   ngOnInit() {
     this.route.paramMap.subscribe((params: IParams) => {
       this.UserId = params.params.id;
-    // Use this component to get all profile relate stuff
     });
-    if (this.UserId === '') { this.UserId = localStorage.getItem('userID'); }
-    this.userService.GetUser(this.UserId, '1')
-      .subscribe((res: IResponse) => {
-        console.log(res);
-        this.User = res.user;
-      });
+    console.log(this.UserId);
+    
+    if (this.UserId === undefined) {
+      this.UserId = localStorage.getItem('userID');
+      this.GetUserInfo(this.UserId, 1);
+    } else {
+      this.GetUserInfo(this.UserId, 'user');
+    }
 
     this.postService.GetPost(0, this.UserId).subscribe((res: IResponse) => {
       this.Posts = res.posts;
@@ -61,5 +63,13 @@ export class ProfileComponent implements OnInit {
 
   PreviousPage() {
     this.location.back();
+  }
+
+  // Get User Info
+  GetUserInfo(userID, key) {
+    this.userService.GetUser(userID, key).subscribe((res: IResponse) => {
+      console.log(res);
+      this.User = res.user;
+    });
   }
 }

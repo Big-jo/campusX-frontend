@@ -21,6 +21,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { JwtModule } from '@auth0/angular-jwt';
 import { HttpClientModule } from '@angular/common/http';
 import { NgZorroAntdMobileModule } from 'ng-zorro-antd-mobile';
+import { NotifierModule, NotifierOptions } from 'angular-notifier';
+
+
 import { SearchBarComponent } from './explore/search-bar/search-bar.component';
 import { UserService } from './services/user.service';
 import { PostService } from './services/post.service';
@@ -36,6 +39,46 @@ import { ImageUploadComponent } from './image-upload/image-upload.component';
 export function tokenGetter() {
    return localStorage.getItem('token');
 }
+const customNotifierOptions: NotifierOptions = {
+   position: {
+       horizontal: {
+          position: 'left',
+          distance: 12
+       },
+       vertical: {
+          position: 'bottom',
+          distance: 12,
+          gap: 10
+       }
+    },
+   theme: 'material',
+   behaviour: {
+     autoHide: 5000,
+     onClick: 'hide',
+     onMouseover: 'pauseAutoHide',
+     showDismissButton: true,
+     stacking: 4
+   },
+   animations: {
+     enabled: true,
+     show: {
+       preset: 'slide',
+       speed: 300,
+       easing: 'ease'
+     },
+     hide: {
+       preset: 'fade',
+       speed: 300,
+       easing: 'ease',
+       offset: 50
+     },
+     shift: {
+       speed: 300,
+       easing: 'ease'
+     },
+     overlap: 150
+   }
+ };
 
 @NgModule({
    declarations: [
@@ -68,8 +111,9 @@ export function tokenGetter() {
             tokenGetter,
             whitelistedDomains: ['localhost:3000'],
             blacklistedRoutes: []
-         }
+         },
       }),
+      NotifierModule.withConfig(customNotifierOptions),
       NgZorroAntdMobileModule,
       HttpClientModule,
       ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),

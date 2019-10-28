@@ -13,19 +13,19 @@
     <div class="content" class="initial-page">
       <div style="padding: 15px">
         <!-- Pass Post Object To Card -->
-        <ng-container *ngIf="Posts; else elseTemplate">
+        <ng-container>
           <div class="posts" *ngFor="let post of Posts">
             <app-card [post]="post"></app-card>
           </div>
         </ng-container>
-        <ng-template #elseTemplate>
-          <div id="Empty-home">
+        <div>
+          <div id="Empty-home" *ngIf="Posts == false">
             <!-- Have some graphic to show empty -->
             <p>Such empty, find Others</p>
             <div class="btn" [routerLink]="[ '/explore-friends']" Button [type]="'primary'"> Find Friends</div>
             <!-- Use something else than a button-->
           </div>
-        </ng-template>
+        </div>
         
       </div>
     </div>

@@ -34,7 +34,7 @@ export class ExploteTemplateComponent implements OnInit {
     });
   }
 
-  private PreviousPage() {
+  public PreviousPage() {
     this.location.back();
   }
 

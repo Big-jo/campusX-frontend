@@ -222,11 +222,25 @@ h3{
     transform: rotate(45deg);
   }
   .chks{
-      margin-top: 25px;
+      /* margin-top: 25px; */
       margin-bottom: 25px;
       display: flex;
       flex-direction: row;
   }
   p {
     font-size: 16px;
+  }
+  #university{
+    margin: 25px 0px 25px 0px;
+    /* width: 150px; */
+    padding: 10px 35px 10px 15px;
+    font-size: 16px;
+    border: 1px solid #CCC;
+    /* height: 34px; */
+    /* -webkit-appearance: none; */
+    -moz-appearance: none;
+    /* appearance: none; */
+    color: #082943;
+    border-radius: 60px;
+    width: 100%;
   }

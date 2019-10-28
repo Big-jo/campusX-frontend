@@ -16,7 +16,7 @@
       <div class="post">
           <p>{{post.text}}</p>
       </div>
-      <div class="player" *ngIf="post.videoSrc">
+      <div class="player" *ngIf="post.video">
         <div plyr  [plyrPlaysInline]="true" [plyrSources]="videoSources" (plyrInit)="player = $event" (plyrPlay)="played($event)"></div>
       </div>
       <div id="interaction-box">
