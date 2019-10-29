@@ -34,51 +34,52 @@ import { environment } from '../environments/environment';
 import { ExploteTemplateComponent } from './explore/explote-template/explote-template.component';
 import { ExploreFriendsComponent } from './explore/explore-friends/explore-friends.component';
 import { ImageUploadComponent } from './image-upload/image-upload.component';
+import { TokenInterceptor } from './auth/token.interceptor';
 
 
-export function tokenGetter() {
-   return localStorage.getItem('token');
-}
+// export function tokenGetter() {
+//    return localStorage.getItem('token');
+// }
 const customNotifierOptions: NotifierOptions = {
    position: {
-       horizontal: {
-          position: 'left',
-          distance: 12
-       },
-       vertical: {
-          position: 'bottom',
-          distance: 12,
-          gap: 10
-       }
-    },
+      horizontal: {
+         position: 'left',
+         distance: 12
+      },
+      vertical: {
+         position: 'bottom',
+         distance: 12,
+         gap: 10
+      }
+   },
    theme: 'material',
    behaviour: {
-     autoHide: 5000,
-     onClick: 'hide',
-     onMouseover: 'pauseAutoHide',
-     showDismissButton: true,
-     stacking: 4
+      autoHide: 5000,
+      onClick: 'hide',
+      onMouseover: 'pauseAutoHide',
+      showDismissButton: true,
+      stacking: 4
    },
    animations: {
-     enabled: true,
-     show: {
-       preset: 'slide',
-       speed: 300,
-       easing: 'ease'
-     },
-     hide: {
-       preset: 'fade',
-       speed: 300,
-       easing: 'ease',
-       offset: 50
-     },
-     shift: {
-       speed: 300,
-       easing: 'ease'
-     },
-     overlap: 150
+      enabled: true,
+      show: {
+         preset: 'slide',
+         speed: 300,
+         easing: 'ease'
+      },
+      hide: {
+         preset: 'fade',
+         speed: 300,
+         easing: 'ease',
+         offset: 50
+      },
+      shift: {
+         speed: 300,
+         easing: 'ease'
+      },
+      overlap: 150
    }
- };
+};
 
 @NgModule({
    declarations: [
@@ -106,18 +107,22 @@ const customNotifierOptions: NotifierOptions = {
       PlyrModule,
       BrowserAnimationsModule,
       HttpClientModule,
-      JwtModule.forRoot({
-         config: {
-            tokenGetter,
-            whitelistedDomains: ['localhost:3000', 'campusx.herokuapp.com'],
-         },
-      }),
+      // JwtModule.forRoot({
+      //    config: {
+      //       tokenGetter,
+      //       whitelistedDomains: ['localhost:3000', 'campusx.herokuapp.com'],
+      //    },
+      // }),
       NotifierModule.withConfig(customNotifierOptions),
       NgZorroAntdMobileModule,
       HttpClientModule,
       ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
    ],
-   providers: [UserService, PostService, StorageService, { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true}],
+   providers: [
+      UserService,
+      PostService,
+      StorageService,
+      { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true }],
    schemas: [
 
    ],
