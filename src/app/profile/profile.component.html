@@ -13,8 +13,8 @@
         </div>
       </div>
       <div id="profile-settings">
-        <div id="Edit">Edit Profile</div>
-        <span class="typcn typcn-cog-outline"></span>
+        <div id="edit" class="ripple">Edit Profile</div>
+        <div class="preference" *ngIf="show === true then popover"></div>
       </div>
       <div id="bar">
           <div id="info-panel">
@@ -48,3 +48,26 @@
         </div>
     </div>
 </div>
+
+<ng-template #popover>
+  <div Popover
+        [ngStyle]="{'height': '100%', 'display': 'flex', 'align-items': 'center'}"
+        [mask]="true"
+        [showArrow]="true"
+        [overlay]="overlay"
+        [placement]="'bottomRight'"
+        (onSelect)="onSelect($event)"
+        (onVisibleChange)="onVisibleChange($event)"
+        class="typcn typcn-cog-outline preference"
+  ></div>
+</ng-template>
+
+<ng-template #overlay>
+  <PopoverItem [icon]="icon1"(click)="logOut()"><p>Log Out</p></PopoverItem>
+</ng-template>
+
+
+<ng-template #icon1>
+  <span class="typcn typcn-arrow-back-outline"></span>
+</ng-template>
+

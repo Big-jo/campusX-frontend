@@ -21,8 +21,11 @@
     box-shadow: 3px 6px 7px #082945;
 }
 
-.typcn{
-    color: white;
+.typcn-user-add{
+    position: relative;
+    left: 145px;
+    font-size: 18px;
+    /* color: white; */
 }
 #Empty-home{
     display: flex;
@@ -40,4 +43,7 @@
     width: 50%;
     margin-top: 15px;
     font-family: 'Montserrat', sans-serif
+}
+.fab .typcn{
+    color: white;
 }
