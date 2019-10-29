@@ -18,8 +18,8 @@ import { LandingComponent } from './landing/landing.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { LogInComponent } from './log-in/log-in.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { JwtModule } from '@auth0/angular-jwt';
-import { HttpClientModule } from '@angular/common/http';
+import { JwtModule, JwtInterceptor } from '@auth0/angular-jwt';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgZorroAntdMobileModule } from 'ng-zorro-antd-mobile';
 import { NotifierModule, NotifierOptions } from 'angular-notifier';
 
@@ -110,7 +110,6 @@ const customNotifierOptions: NotifierOptions = {
          config: {
             tokenGetter,
             whitelistedDomains: ['localhost:3000', 'campusx.herokuapp.com'],
-            blacklistedRoutes: []
          },
       }),
       NotifierModule.withConfig(customNotifierOptions),
@@ -118,7 +117,7 @@ const customNotifierOptions: NotifierOptions = {
       HttpClientModule,
       ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
    ],
-   providers: [UserService, PostService, StorageService],
+   providers: [UserService, PostService, StorageService, { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true}],
    schemas: [
 
    ],
