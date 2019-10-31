@@ -1,66 +1,61 @@
 <div class="">
   <!-- Background of the page -->
   <div class="head-title">
-      <h3> <span class="typcn typcn-arrow-left left" (click)="PreviousPage()"></span>Profile</h3>
+    <h3> <span class="typcn typcn-arrow-left left" (click)="PreviousPage()"></span>Profile</h3>
   </div>
-    <!-- Content of the page -->
-    <div id="profile-head">
-      <div id="avatar-panel">
-        <img id="avatar" [src]="User.userProfile.avatar" alt="{{User.name}}" srcset="">
-        <div id="alias">
-          <h1 id="name">{{User.name}}</h1>
-          <h6 id="tag">{{User.userTag}}</h6>
-        </div>
-      </div>
-      <div id="profile-settings">
-        <div id="edit" class="ripple" popover1 *ngIf="User._id === auth">Edit Profile</div>
-        <div class="preference" *ngIf="(OptionsShow === true) && (User._id === auth )then popover "></div>
-      </div>
-      <div id="bar">
-          <div id="info-panel">
-              <div id="reps">
-                  <span >Rep</span>
-                  <p>{{User.userProfile.rep_points}}</p>
-              </div>
-              <hr style="margin: 0px;">
-              <div class="followers">
-                   <span id="followers" style="text-align: center;">Followers</span>
-                   <p>{{User.followers.length}}</p>
-              </div>
-              <hr style="margin: 0px;">
-              <div class="following">
-                    <span id="following" style="text-align: center;">Following</span>
-                    <p style="text-align: center;"> {{User.followings.length}} </p>
-               </div>
-          </div>
-          <!-- Add Settings Button Beside -->
-          <!-- <span class="typcn typcn-spanner"></span> -->
+  <!-- Content of the page -->
+  <div id="profile-head">
+    <div id="avatar-panel">
+      <img id="avatar" [src]="User.userProfile.avatar" alt="{{User.name}}" srcset="">
+      <div id="alias">
+        <h1 id="name">{{User.name}}</h1>
+        <h6 id="tag">{{User.userTag}}</h6>
+        <h6 id="uni">{{User.userProfile.university}}</h6>
       </div>
     </div>
-    <div id="posts">
-       <h3 style="margin-top: 40px; margin-left: 30px;">Posts</h3>
-        <div id="post-wrapper">
-          <div class="card-wrapper">
-            <div *ngFor="let post of Posts">
-              <app-card [post]="post"></app-card>
-            </div>
-          </div>
-        </div>
+    <div id="profile-settings">
+      <!-- <div id="edit" class="ripple" popover1 *ngIf="User._id === auth">Edit Profile</div> -->
+      <div class="preference" *ngIf="(OptionsShow === true) && (User._id === auth )then popover "></div>
     </div>
+    <div id="bar">
+      <div id="info-panel">
+        <div id="reps">
+          <span>Rep</span>
+          <p>{{User.userProfile.rep_points}}</p>
+        </div>
+        <hr style="margin: 0px;">
+        <div class="followers">
+          <span id="followers" style="text-align: center;">Followers</span>
+          <p>{{User.followers.length}}</p>
+        </div>
+        <hr style="margin: 0px;">
+        <div class="following">
+          <span id="following" style="text-align: center;">Following</span>
+          <p style="text-align: center;"> {{User.followings.length}} </p>
+        </div>
+      </div>
+      <!-- Add Settings Button Beside -->
+      <!-- <span class="typcn typcn-spanner"></span> -->
+    </div>
+  </div>
+  <div id="posts">
+    <h3 style="margin-top: 40px; margin-left: 30px;">Posts</h3>
+    <div id="post-wrapper">
+      <div class="card-wrapper">
+        <div *ngFor="let post of Posts">
+          <app-card [post]="post"></app-card>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
 <ng-template #popover>
-  <div Popover
-        [ngStyle]="{'height': '100%', 'display': 'flex', 'align-items': 'center'}"
-        [mask]="true"
-        [showArrow]="true"
-        [overlay]="overlay"
-        [placement]="'bottomRight'"
-        class="typcn typcn-cog-outline preference"
-  ></div>
+  <div Popover [ngStyle]="{'height': '100%', 'display': 'flex', 'align-items': 'center'}" [mask]="true"
+    [showArrow]="true" [overlay]="overlay" [placement]="'bottomRight'" class="typcn typcn-cog-outline preference"></div>
 </ng-template>
 
-<ng-template #popover1>
+<!-- <ng-template #popover1>
     <div Popover
           [ngStyle]="{'height': '100%', 'display': 'flex', 'align-items': 'center'}"
           [mask]="true"
@@ -68,18 +63,21 @@
           [overlay]="editOverlay"
           [placement]="'bottomRight'"
     ></div>
-  </ng-template>
+  </ng-template> -->
 
 <ng-template #overlay>
-  <PopoverItem [icon]="icon1"(click)="logOut()"><p>Log Out</p></PopoverItem>
+  <PopoverItem [icon]="icon1" (click)="logOut()">
+    <p>Log Out</p>
+  </PopoverItem>
+  <PopoverItem [icon]="icon2" (click)="changeAvatar()">
+    <p>Edit Profile</p>
+  </PopoverItem>
 </ng-template>
-
-<ng-template #editOverlay>
-    <PopoverItem (click)="changeAvatar()"><p>Change Profile Picture</p></PopoverItem>
-  </ng-template>
-  
 
 <ng-template #icon1>
   <span class="typcn typcn-arrow-back-outline"></span>
 </ng-template>
 
+<ng-template #icon2>
+  <span class="typcn typcn-edit"></span>
+</ng-template>
