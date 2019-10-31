@@ -20,6 +20,8 @@
     display: flex;
     flex-direction: row;
     margin: 20px 0px 20px 0px;
+    box-sizing: border-box;
+    
 }
 h1,h2,h3,h4,h5,h6, p {
     font-family: 'Montserrat', sans-serif;
@@ -45,13 +47,9 @@ h1,h2,h3,h4,h5,h6, p {
 .typcn.right{
     position: relative;
 }
-.trash{
-    position: relative;
-}
 .typcn-trash{
-    position: absolute;
-    left: 165px;
-    flex: 1 0 auto;
+    position: relative;
+    left: 190px;
 }
 .typcn{
     font-size: 20px;
@@ -74,4 +72,7 @@ p{
 .player{
     border-radius: 25px;
     margin: 20px 0px 20px 0px;
+}
+#thumbs{
+
 }
