@@ -6,7 +6,7 @@
     </div>
     <h3 id="head">Profile</h3>
     <div>
-      <span *ngIf="(OptionsShow === true) && (User._id === auth ) then popover "></span>
+      <span (click)="showActionSheet(message)" class="typcn typcn-cog-outline" *ngIf="(OptionsShow === true) && (User._id === auth ) "></span>
     </div>
     <!-- <h3> <span class="typcn typcn-arrow-left left" (click)="PreviousPage()"></span>Profile 
       <span class="preference" *ngIf="(OptionsShow === true) && (User._id === auth )then popover "></span>
@@ -21,9 +21,6 @@
         <h6 id="tag">{{User.userTag}}</h6>
         <h6 id="uni">{{User.userProfile.university}}</h6>
       </div>
-    </div>
-    <div id="profile-settings">
-        <span *ngIf="(OptionsShow === true) && (User._id === auth ) then popover "></span>
     </div>
     <div id="bar">
       <div id="info-panel">
@@ -58,7 +55,16 @@
   </div>
 </div>
 
-<ng-template #popover>
+<!-- <Modal [(ngModel)]="this.modal.state" [popup]="true" [animationType]="'slide-up'" (onClose)="onClose()">
+    <List [renderHeader]="renderHeader" [className]="'popup-list'">
+      <ListItem>股票名称</ListItem>
+      <ListItem>股票代码</ListItem>
+      <ListItem>买入价格</ListItem>
+      <ListItem> <div Button [type]="'primary'" (onClick)="onClose('modal2')">买入</div> </ListItem>
+    </List>
+  </Modal> -->
+
+<!-- <ng-template #popover>
   <div Popover 
   [ngStyle]="{'height': '100%', 'display': 'flex', 'align-items': 'center'}" 
   [mask]="true"
@@ -66,7 +72,7 @@
   [overlay]="overlay" 
   [placement]="'bottomRight'" 
   class="typcn typcn-cog-outline"></div>
-</ng-template>
+</ng-template> -->
 
 <!-- <ng-template #popover1>
     <div Popover
@@ -78,7 +84,7 @@
     ></div>
   </ng-template> -->
 
-<ng-template #overlay>
+<!-- <ng-template #overlay>
   <PopoverItem [icon]="icon1" (click)="logOut()">
     <p>Log Out</p>
   </PopoverItem>
@@ -93,4 +99,4 @@
 
 <ng-template #icon2>
   <span class="typcn typcn-edit"></span>
-</ng-template>
+</ng-template> -->

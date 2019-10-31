@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../services/user.service';
 import { PostService } from '../services/post.service';
-import {IPost} from '../interfaces/Post';
+import { IPost } from '../interfaces/Post';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { Location } from '@angular/common';
+import { ModalService, ActionSheetService } from 'ng-zorro-antd-mobile';
 export interface IUser {
   _id: string;
   email: string;
@@ -22,7 +23,7 @@ export interface IUser {
 }
 interface IResponse {
   user: IUser;
- posts: Array<IPost>;
+  posts: Array<IPost>;
 }
 
 interface IParams extends ParamMap {
@@ -34,22 +35,30 @@ interface IParams extends ParamMap {
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
-  styleUrls: ['./profile.component.css']
+  styleUrls: ['./profile.component.css'],
 })
+
+
 export class ProfileComponent implements OnInit {
   User: IUser;
   Posts: Array<IPost>;
   UserId;
-  state = {
-    selected: ''
-  };
   OptionsShow = true;
   profileShow = true;
   auth: string;
+  modal = {
+    state: false
+  };
+
   // tslint:disable-next-line: max-line-length
-  constructor(private userService: UserService, private postService: PostService, private route: ActivatedRoute, private location: Location, private router: Router) {
+  constructor(private userService: UserService,
+              private postService: PostService,
+              private route: ActivatedRoute,
+              private location: Location,
+              private router: Router,
+              private actionSheet: ActionSheetService) {
     this.auth = localStorage.getItem('userID');
-   }
+  }
 
   ngOnInit() {
     this.route.paramMap.subscribe((params: IParams) => {
@@ -79,17 +88,6 @@ export class ProfileComponent implements OnInit {
     });
   }
 
-  // onSelect(event) {
-  //   console.log(event);
-  // }
-
-  // onVisibleChange(event) {
-  //   console.log(event);
-  // }
-
-  // onLeftClick() {
-  //   console.log('onLeftClick');
-  // }
 
   logOut() {
     localStorage.removeItem('token');
@@ -99,4 +97,33 @@ export class ProfileComponent implements OnInit {
   changeAvatar() {
     this.router.navigateByUrl('/avatar');
   }
+
+  showActionSheet = message => {
+    const BUTTONS = ['Edit Profile', 'Log Out', 'Cancel'];
+    this.actionSheet.showActionSheetWithOptions(
+      {
+        options: BUTTONS,
+        cancelButtonIndex: BUTTONS.length - 1,
+        destructiveButtonIndex: BUTTONS.length - 2,
+        title: 'Prefrences',
+        message,
+        maskClosable: true
+      },
+      buttonIndex => {
+        console.log(buttonIndex);
+        
+        switch (buttonIndex) {
+          case 0:
+              this.changeAvatar();
+              break;
+          case 1:
+              this.logOut();
+              break;
+          default:
+            break;
+        }
+      }
+    );
+  }
+
 }
