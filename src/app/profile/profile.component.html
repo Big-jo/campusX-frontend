@@ -1,7 +1,16 @@
 <div class="">
   <!-- Background of the page -->
   <div class="head-title">
-    <h3> <span class="typcn typcn-arrow-left left" (click)="PreviousPage()"></span>Profile</h3>
+    <div id="back">
+      <span class="typcn typcn-arrow-left left" (click)="PreviousPage()"></span>
+    </div>
+    <h3 id="head">Profile</h3>
+    <div>
+      <span *ngIf="(OptionsShow === true) && (User._id === auth ) then popover "></span>
+    </div>
+    <!-- <h3> <span class="typcn typcn-arrow-left left" (click)="PreviousPage()"></span>Profile 
+      <span class="preference" *ngIf="(OptionsShow === true) && (User._id === auth )then popover "></span>
+    </h3> -->
   </div>
   <!-- Content of the page -->
   <div id="profile-head">
@@ -14,8 +23,7 @@
       </div>
     </div>
     <div id="profile-settings">
-      <!-- <div id="edit" class="ripple" popover1 *ngIf="User._id === auth">Edit Profile</div> -->
-      <div class="preference" *ngIf="(OptionsShow === true) && (User._id === auth )then popover "></div>
+        <span *ngIf="(OptionsShow === true) && (User._id === auth ) then popover "></span>
     </div>
     <div id="bar">
       <div id="info-panel">
@@ -51,8 +59,13 @@
 </div>
 
 <ng-template #popover>
-  <div Popover [ngStyle]="{'height': '100%', 'display': 'flex', 'align-items': 'center'}" [mask]="true"
-    [showArrow]="true" [overlay]="overlay" [placement]="'bottomRight'" class="typcn typcn-cog-outline preference"></div>
+  <div Popover 
+  [ngStyle]="{'height': '100%', 'display': 'flex', 'align-items': 'center'}" 
+  [mask]="true"
+  [showArrow]="true" 
+  [overlay]="overlay" 
+  [placement]="'bottomRight'" 
+  class="typcn typcn-cog-outline"></div>
 </ng-template>
 
 <!-- <ng-template #popover1>
