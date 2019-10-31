@@ -22,6 +22,7 @@
     "@angular/router": "~8.0.1",
     "@angular/service-worker": "~8.0.1",
     "@auth0/angular-jwt": "^3.0.0",
+    "angular-cli-ghpages": "^0.6.0",
     "angular-notifier": "^6.0.1",
     "bootstrap": "^4.3.1",
     "ng-zorro-antd-mobile": "^1.0.1",
