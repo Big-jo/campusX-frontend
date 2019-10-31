@@ -1,16 +1,22 @@
-<form class="form" #form="ngForm" (ngSubmit)="onSubmit(form.value)">
+<form class="form" #form="ngForm" (ngSubmit)="form.valid && onSubmit(form.value)">
    <h3 style="margin-bottom: 35px;">Log In</h3>
    <!-- <WhiteSpace></WhiteSpace>
     <WhiteSpace></WhiteSpace> -->
   <div class="wrapper">
     <div class="question">
-      <input type="text" name="email" required ngModel/>
+      <input type="text" name="email" required ngModel #email="ngModel"/>
       <label>Email</label>
     </div>
+    <div *ngIf="form.submitted && email.invalid" class=validation>
+        <div *ngIf="email.errors.required" class="required">Email is required</div>
+      </div>
     <div class="question">
-      <input type="text" name="password" required ngModel/>
+      <input type="text" name="password" required ngModel #password="ngModel"/>
       <label>Password</label>
     </div>
+    <div *ngIf="form.submitted && password.invalid" class=validation>
+        <div *ngIf="password.errors.required" class="required">Password is required</div>
+      </div>
   </div>
   <!-- Style the err message -->
   

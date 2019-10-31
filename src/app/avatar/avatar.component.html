@@ -1,0 +1,16 @@
+<label>
+  <div class="image-upload-container " [ngStyle]="{'background-image': 'url('+ selectedFile.src +')'}">
+    <span>
+      <p *ngIf="!uploaded" class="subtitle">{{subtitle}}</p>
+
+    </span>
+    <input #imageInput type="file" accept="image/*" (change)="processFile(imageInput)">
+    <div id="Buttons">
+      <Button id="skip" Button (click)="Skip()">Skip</Button>
+      <Button id="next" Button (click)="Next()" >Next</Button>
+    </div>
+  </div>
+  <notifier-container ></notifier-container>
+</label>
+<ActivityIndicator [toast]="true" [text]="'Loading...'" [animating]="animating"></ActivityIndicator>
+

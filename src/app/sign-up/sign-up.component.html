@@ -1,5 +1,5 @@
 <!-- SVG -->
-<form class="form" #form="ngForm" (ngSubmit)="onSubmit(form.value)">
+<form name="signUp" class="form" #form="ngForm" (ngSubmit)="form.valid && onSubmit(form.value)">
   <!-- TODO: Bump up size of title -->
   <h3>Sign Up</h3>
   <WhiteSpace></WhiteSpace>
@@ -8,31 +8,45 @@
   <WhiteSpace></WhiteSpace>
   <div class="wrapper">
     <div class="question">
-      <input type="text" name="name" required ngModel />
+      <input type="text" name="name" required ngModel #name="ngModel" />
       <label>Name</label>
     </div>
+    <div *ngIf="form.submitted && name.invalid" class=validation>
+      <div *ngIf="name.errors.required" class="required">Name is required</div>
+    </div>
     <div class="question">
-      <input type="text" name="email" required ngModel />
+      <input type="text" name="email" required ngModel #email="ngModel" />
       <label>Email</label>
     </div>
-    <div class="question">
-      <input type="text" name="password" required ngModel />
-      <label>Password</label>
+    <div *ngIf="form.submitted && email.invalid" class=validation>
+      <div *ngIf="email.errors.required" class="required">Email is required</div>
     </div>
     <div class="question">
-      <input type="text" name="userTag" required ngModel />
+      <input type="text" name="password" required ngModel #password="ngModel" />
+      <label>Password</label>
+    </div>
+    <div *ngIf="form.submitted && password.invalid" class=validation>
+      <div *ngIf="password.errors.required" class="required">Password is required</div>
+    </div>
+    <div class="question">
+      <input type="text" name="userTag" required ngModel #userTag="ngModel" />
       <label>UserTag, Example: @RealMe</label>
       <!-- TODO: Show userTag in style -->
     </div>
+    <div *ngIf="form.submitted && userTag.invalid" class=validation>
+      <div *ngIf="userTag.errors.required" class="required">A UserTag is required</div>
+    </div>
     <div>
-      <select name="university" id="university" [(ngModel)]="university" (ngModelChange)="onChange($event)">
-        <option value ="">What University Are You In ?</option>
+      <select name="university" id="university" [(ngModel)]="university" (ngModelChange)="onChange($event)" ngModel
+        #uni="ngModel">
+        <option value="">What University Are You In ?</option>
         <option *ngFor="let campus of campuses;" [value]="campus.Name">{{campus.Name}}</option>
       </select>
     </div>
-    
-    <!-- <input type="text" name="university" required ngModel/>
-      <label>University, Example: UNILAG</label> -->
+
+    <div *ngIf="form.submitted  && ( university == '') && uni.invalid " class=validation>
+      <div *ngIf="userTag.errors.required" class="required">Select A University</div>
+    </div>
   </div>
 
   <div class="chks">

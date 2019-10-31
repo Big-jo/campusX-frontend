@@ -7,15 +7,14 @@
        
         <div class="card">
           <div class="profile">
-            <img [src]="user1.userProfile" alt="" class="avatar">
+            <img [src]="user1.userProfile.avatar" alt="" class="avatar">
             <div class="creds">
               <span class="name" [routerLink]="[ '/profile', user1._id ]">{{user1.name}}</span>
               <span class="tag"> {{user1.userTag}}</span>
             </div>
         
-            <div *ngIf="user1._id !== userID">
-                <button class="btn-f ripple" (click)="follow(user1._id, user1.userTag)"><span>follow</span></button>
-            </div>
+                <button *ngIf="user1._id !== userID" class="btn-f ripple" (click)="follow(user1._id, user1.userTag)"><span>follow</span></button>
+        
           </div>
         </div>
       </div>

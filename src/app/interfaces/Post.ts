@@ -9,13 +9,13 @@ export interface IPost {
   author: {
     _id: string;
     name: string,
+    userTag: string;
     userProfile: {
     avatar: string,
     gender: string,
     level: number,
     rep_points: number,
     university: string,
-    userTag: string;
   };
 };
   createdAt: string;

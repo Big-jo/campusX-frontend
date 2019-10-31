@@ -152,4 +152,13 @@ h3{
   p {
     font-size: 16px;
   }
- 
+  
+  .validation{
+    display: block;
+    background-color: red;
+    border-radius: 5px;
+  }
+  .validation .required{
+    color: white;
+    padding: 3px 4px 3px 5px ;
+  }

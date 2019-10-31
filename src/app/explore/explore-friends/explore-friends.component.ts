@@ -11,6 +11,7 @@ interface IUser {
     gender: string
     rep_points: number;
     university: string;
+    avatar: string;
   };
   userTag: string;
 }

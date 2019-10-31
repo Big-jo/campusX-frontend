@@ -50,23 +50,29 @@ export class LogInComponent implements OnInit {
       email: form.email,
       password: form.password,
     };
+
     this.animating = !this.animating;
     this.userService.LoginUser(Form).subscribe((res: IResponse) => {
+
       for (const key in res) {
         if (res.hasOwnProperty(key)) {
           this.storageService.StoreLocal(key, res[key]);
         }
       }
+
       this.router.navigateByUrl('/main');
 
     }, (error) => { // TODO: Create Interface for error
+
       this.animating = !this.animating;
       this.errStatement = error.error.err;
       this.notifier.notify('error', this.errStatement, 'loginError');
+
     });
   }
 
   showToast() {
+
     this.animating = !this.animating;
     // this._closeTimer = setTimeout(() => {
     //   this.animating = !this.animating;

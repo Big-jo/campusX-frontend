@@ -11,6 +11,7 @@ import {
 import {
   StorageService
 } from '../services/storage.service';
+import { NotifierService } from 'angular-notifier';
 
 interface IResponse {
   exists: string;
@@ -30,27 +31,34 @@ export class UserprofileComponent implements OnInit {
   answer;
   i = 0;
   signUpForm;
+  loading = false; // State of login button
+  animating = false;
+  private readonly notifier: NotifierService;
+
   // Answers: string [];
-  constructor(private router: Router, private userService: UserService, private storageService: StorageService) {
+  constructor(private router: Router,
+              private userService: UserService,
+              private storageService: StorageService,
+              private notifierService: NotifierService) {
+    this.notifier = notifierService;
     this.Questions = [{
-        q: 'What Level Are You In',
-        a: this.answer
-      },
-      {
-        q: 'What\'s Your Department',
-        a: this.answer
-      },
-      {
-        q: 'Your Bio',
-        a: this.answer
-      }
+      q: 'What Level Are You In',
+      a: this.answer
+    },
+    {
+      q: 'What\'s Your Department',
+      a: this.answer
+    },
+    {
+      q: 'Your Bio',
+      a: this.answer
+    },
     ];
     this.Displayed = this.Questions[0].q;
   }
 
   ngOnInit() {
     this.userService.Current.subscribe((data) => {
-      console.log(data, 'data');
       this.signUpForm = data;
     });
   }
@@ -59,15 +67,14 @@ export class UserprofileComponent implements OnInit {
     console.log(this.Questions.length - 1, this.i);
     if (this.i <= (this.Questions.length - 1)) {
       try {
-        console.log(this.Questions[this.i].a);
+
         this.Questions[this.i].a = answer;
         this.i++;
         this.Displayed = this.Questions[this.i].q;
         this.answer = '';
-        console.log(this.Questions);
       } catch (error) {
-        console.log(this.Questions);
-        // package a send in request
+        this.animating = !this.animating;
+        // package and send a request
         const userProfile = {
           level: this.Questions[0].a,
           department: this.Questions[1].a,
@@ -75,17 +82,22 @@ export class UserprofileComponent implements OnInit {
           university: this.signUpForm.university,
           gender: this.signUpForm.gender,
         };
+
         // Join both forms
         const form = {
           user: this.signUpForm,
           userProfile
         };
-        console.log(form);
 
-        this.userService.CreateUser(form)
-          .subscribe((res: IResponse) => {
-            this.CheckResponse(res);
-          });
+        this.userService.CreateUser(form).subscribe((res: IResponse) => {
+          this.animating = !this.animating;
+          this.CheckResponse(res);
+        }, (error) => {
+          console.log(error);
+
+          this.animating = !this.animating;
+          this.notifier.notify('error', error.error.error, 'SignUpError');
+        });
       }
     } else {
 
@@ -103,7 +115,7 @@ export class UserprofileComponent implements OnInit {
           this.storageService.StoreLocal(key, res[key]);
         }
       }
-      this.router.navigateByUrl('/main');
+      this.router.navigateByUrl('/avatar');
     }
   }
 }

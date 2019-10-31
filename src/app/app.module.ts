@@ -35,6 +35,7 @@ import { ExploteTemplateComponent } from './explore/explote-template/explote-tem
 import { ExploreFriendsComponent } from './explore/explore-friends/explore-friends.component';
 import { ImageUploadComponent } from './image-upload/image-upload.component';
 import { TokenInterceptor } from './auth/token.interceptor';
+import { AvatarComponent } from './avatar/avatar.component';
 
 
 // export function tokenGetter() {
@@ -98,7 +99,8 @@ const customNotifierOptions: NotifierOptions = {
       UserprofileComponent,
       ExploteTemplateComponent,
       ExploreFriendsComponent,
-      ImageUploadComponent
+      ImageUploadComponent,
+      AvatarComponent
    ],
    imports: [
       BrowserModule,

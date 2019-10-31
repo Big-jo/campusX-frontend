@@ -43,17 +43,19 @@ export class ProfileComponent implements OnInit {
   state = {
     selected: ''
   };
-  show = true;
-
+  OptionsShow = true;
+  profileShow = true;
+  auth: string;
   // tslint:disable-next-line: max-line-length
-  constructor(private userService: UserService, private postService: PostService, private route: ActivatedRoute, private location: Location, private router: Router) { }
+  constructor(private userService: UserService, private postService: PostService, private route: ActivatedRoute, private location: Location, private router: Router) {
+    this.auth = localStorage.getItem('userID');
+   }
 
   ngOnInit() {
     this.route.paramMap.subscribe((params: IParams) => {
       this.UserId = params.params.id;
     });
-    console.log(this.UserId);
-    
+
     if (this.UserId === undefined) {
       this.UserId = localStorage.getItem('userID');
       this.GetUserInfo(this.UserId, 1);
@@ -73,25 +75,28 @@ export class ProfileComponent implements OnInit {
   // Get User Info
   GetUserInfo(userID, key) {
     this.userService.GetUser(userID, key).subscribe((res: IResponse) => {
-      console.log(res);
       this.User = res.user;
     });
   }
 
-  onSelect(event) {
-    console.log(event);
-  }
+  // onSelect(event) {
+  //   console.log(event);
+  // }
 
-  onVisibleChange(event) {
-    console.log(event);
-  }
+  // onVisibleChange(event) {
+  //   console.log(event);
+  // }
 
-  onLeftClick() {
-    console.log('onLeftClick');
-  }
+  // onLeftClick() {
+  //   console.log('onLeftClick');
+  // }
 
   logOut() {
     localStorage.removeItem('token');
     this.router.navigateByUrl('/login');
+  }
+
+  changeAvatar() {
+    this.router.navigateByUrl('/avatar');
   }
 }

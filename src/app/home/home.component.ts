@@ -60,7 +60,6 @@ export class HomeComponent implements OnInit {
 
   GetPost() {
     this.postService.GetPost(1, localStorage.getItem('userID')).subscribe((res: Response) => {
-      console.log(res);
       this.Posts = res.posts;
     });
   }

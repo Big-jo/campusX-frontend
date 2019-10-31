@@ -16,7 +16,10 @@ export class MainComponent implements OnInit {
 
   flag = true;
   index = 0;
-  constructor(private router: Router, private storageService: StorageService) { }
+  avatar: string;
+  constructor(private router: Router, private storageService: StorageService) {
+    this.avatar = localStorage.getItem('avatar');
+   }
 
   ngOnInit() {
     if (this.storageService.GetLocal('token') === null) {
