@@ -17,6 +17,7 @@ export interface IUser {
     level: number;
     rep_points: number;
     university: string;
+    bio: string;
   };
   userTag: string;
   visits: number;
