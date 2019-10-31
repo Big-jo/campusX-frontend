@@ -1,0 +1,88 @@
+{
+  "configVersion": 1,
+  "timestamp": 1572485860332,
+  "index": "https://github.com/Big-jo/campusx.github.io.git/index.html",
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "urls": [
+        "https://github.com/Big-jo/campusx.github.io.git/favicon.ico",
+        "https://github.com/Big-jo/campusx.github.io.git/index.html",
+        "https://github.com/Big-jo/campusx.github.io.git/main-es2015.ddcf8743df2af9d233d0.js",
+        "https://github.com/Big-jo/campusx.github.io.git/main-es5.d4a65d0c9a6d879f0352.js",
+        "https://github.com/Big-jo/campusx.github.io.git/polyfills-es2015.a3f585d393ecee6ff04d.js",
+        "https://github.com/Big-jo/campusx.github.io.git/polyfills-es5.602d063db467db5bed1b.js",
+        "https://github.com/Big-jo/campusx.github.io.git/runtime-es2015.858f8dd898b75fe86926.js",
+        "https://github.com/Big-jo/campusx.github.io.git/runtime-es5.741402d1d47331ce975c.js",
+        "https://github.com/Big-jo/campusx.github.io.git/scripts.2ba6eb1d242923a248b6.js",
+        "https://github.com/Big-jo/campusx.github.io.git/styles.546b8196b2bdca109d7b.css"
+      ],
+      "patterns": []
+    },
+    {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "urls": [
+        "https://github.com/Big-jo/campusx.github.io.git/assets/icons/icon-128x128.png",
+        "https://github.com/Big-jo/campusx.github.io.git/assets/icons/icon-144x144.png",
+        "https://github.com/Big-jo/campusx.github.io.git/assets/icons/icon-152x152.png",
+        "https://github.com/Big-jo/campusx.github.io.git/assets/icons/icon-192x192.png",
+        "https://github.com/Big-jo/campusx.github.io.git/assets/icons/icon-384x384.png",
+        "https://github.com/Big-jo/campusx.github.io.git/assets/icons/icon-512x512.png",
+        "https://github.com/Big-jo/campusx.github.io.git/assets/icons/icon-72x72.png",
+        "https://github.com/Big-jo/campusx.github.io.git/assets/icons/icon-96x96.png",
+        "https://github.com/Big-jo/campusx.github.io.git/typicons.107d077d609efa723916.svg",
+        "https://github.com/Big-jo/campusx.github.io.git/typicons.29f9630f7d87a79830d1.ttf",
+        "https://github.com/Big-jo/campusx.github.io.git/typicons.95aa28e29618c068e8a5.woff",
+        "https://github.com/Big-jo/campusx.github.io.git/typicons.a509074c88f07e40a8d2.eot"
+      ],
+      "patterns": []
+    }
+  ],
+  "dataGroups": [],
+  "hashTable": {
+    "https://github.com/Big-jo/campusx.github.io.git/assets/icons/icon-128x128.png": "dae3b6ed49bdaf4327b92531d4b5b4a5d30c7532",
+    "https://github.com/Big-jo/campusx.github.io.git/assets/icons/icon-144x144.png": "b0bd89982e08f9bd2b642928f5391915b74799a7",
+    "https://github.com/Big-jo/campusx.github.io.git/assets/icons/icon-152x152.png": "7479a9477815dfd9668d60f8b3b2fba709b91310",
+    "https://github.com/Big-jo/campusx.github.io.git/assets/icons/icon-192x192.png": "1abd80d431a237a853ce38147d8c63752f10933b",
+    "https://github.com/Big-jo/campusx.github.io.git/assets/icons/icon-384x384.png": "329749cd6393768d3131ed6304c136b1ca05f2fd",
+    "https://github.com/Big-jo/campusx.github.io.git/assets/icons/icon-512x512.png": "559d9c4318b45a1f2b10596bbb4c960fe521dbcc",
+    "https://github.com/Big-jo/campusx.github.io.git/assets/icons/icon-72x72.png": "c457e56089a36952cd67156f9996bc4ce54a5ed9",
+    "https://github.com/Big-jo/campusx.github.io.git/assets/icons/icon-96x96.png": "3914125a4b445bf111c5627875fc190f560daa41",
+    "https://github.com/Big-jo/campusx.github.io.git/favicon.ico": "84161b857f5c547e3699ddfbffc6d8d737542e01",
+    "https://github.com/Big-jo/campusx.github.io.git/index.html": "fb0acbd953a62bd02731dd17e20d20d38915e55c",
+    "https://github.com/Big-jo/campusx.github.io.git/main-es2015.ddcf8743df2af9d233d0.js": "794388d6a62cd2a42d3d2bde5e9723191a6178b1",
+    "https://github.com/Big-jo/campusx.github.io.git/main-es5.d4a65d0c9a6d879f0352.js": "a749da135c58385e9fda3c11b4126e8b760302f5",
+    "https://github.com/Big-jo/campusx.github.io.git/polyfills-es2015.a3f585d393ecee6ff04d.js": "11db76a54e506fb5a798e1943be845c73e8e3a06",
+    "https://github.com/Big-jo/campusx.github.io.git/polyfills-es5.602d063db467db5bed1b.js": "4e651b1974495f1c1579a757f954b8c814713c03",
+    "https://github.com/Big-jo/campusx.github.io.git/runtime-es2015.858f8dd898b75fe86926.js": "b92ba971b5b14681fd40c9c2e101b8b8b053f0d5",
+    "https://github.com/Big-jo/campusx.github.io.git/runtime-es5.741402d1d47331ce975c.js": "84b2a90444e100ea9721228e5fd436c0f38b47b6",
+    "https://github.com/Big-jo/campusx.github.io.git/scripts.2ba6eb1d242923a248b6.js": "dfe980f672e9d5b9ce7a5034b8e180a331bb557f",
+    "https://github.com/Big-jo/campusx.github.io.git/styles.546b8196b2bdca109d7b.css": "0bffd4ab5443ab51c63fca806f44449d9490113e",
+    "https://github.com/Big-jo/campusx.github.io.git/typicons.107d077d609efa723916.svg": "2d600853ab2dee07d3707b48f6f0e108228345d5",
+    "https://github.com/Big-jo/campusx.github.io.git/typicons.29f9630f7d87a79830d1.ttf": "2dc9a89bcbe7cc129bd6bd924f6d03fe4310f04e",
+    "https://github.com/Big-jo/campusx.github.io.git/typicons.95aa28e29618c068e8a5.woff": "2cd26eab23d66ba998686c0fd2f828696e539ce2",
+    "https://github.com/Big-jo/campusx.github.io.git/typicons.a509074c88f07e40a8d2.eot": "17012e62ff7617f41da563238be7695e1720b95c"
+  },
+  "navigationUrls": [
+    {
+      "positive": true,
+      "regex": "^\\/.*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*\\.[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*\\/.*$"
+    }
+  ]
+}
