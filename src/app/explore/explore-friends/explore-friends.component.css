@@ -25,19 +25,23 @@
 }
 .name{
     font-size: 16px;
-    font-weight: 400;
+    font-weight: bold;
+    color: #082943;
+
 }
 .tag{
     font-family: 'Montserrat', sans-serif;
     font-size: 14px;
+    color: blue;
 }
 .creds{
     position: relative;
-    top: 4px;
+    top: 7px;
     left: 18px;
+    
 }
 .btn-f{
-    background-color: transparent;
+    background-color: #082943;
     border: 1px solid #082943;
     width: 25%;
     border-radius: 6px;
@@ -48,6 +52,7 @@
     font-weight: bold;
     position: relative;
     left: 100px;
+    color: white;
 }
 .panel{
     border-bottom: solid 1px #082943;
@@ -56,4 +61,21 @@
     position: relative;
     right: 130px;
     font-size: 25px;
+}
+.following{
+    background-color: transparent;
+    border: none;
+}
+.tick, .tick2 {
+    position: relative;
+    left: 85px;
+    top: 3px;
+    font-size: 20px;
+}
+.tick2{
+    left: 60px;
+}
+.activity-indicator{
+    text-align: center;
+    margin: 10px 0px 10px 0px;
 }

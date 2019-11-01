@@ -147,3 +147,30 @@ h1,h2,h3,h4,h5,h6, p{
     color: grey;
     margin-top: 9px;
 }
+
+#follow{
+    position: relative;
+    top: 23px;
+    padding: 20px 25px 5px 30px;
+}
+
+#btn-follow{
+    /* background-color: #082943; */
+    color: white;
+}
+
+.btn-following{
+    background-color: white;
+}
+
+#follows p{
+    position: relative;
+    left: 155px;
+    top: 10px;
+    font-size: 10px;
+    background-color: grey;
+    border-radius: 5px;
+    padding: 5px;
+    width: 60px;
+    color: white;
+}

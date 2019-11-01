@@ -1,11 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit, AfterContentInit } from '@angular/core';
 import { UserService } from '../services/user.service';
 import { PostService } from '../services/post.service';
 import { IPost } from '../interfaces/Post';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { Location } from '@angular/common';
 import { ModalService, ActionSheetService } from 'ng-zorro-antd-mobile';
+import { NotifierService } from 'angular-notifier';
 export interface IUser {
+  user: any;
   _id: string;
   email: string;
   followers: [];
@@ -24,6 +26,8 @@ export interface IUser {
 }
 interface IResponse {
   user: IUser;
+  following: boolean;
+  followed: boolean;
   posts: Array<IPost>;
 }
 
@@ -50,7 +54,12 @@ export class ProfileComponent implements OnInit {
   modal = {
     state: false
   };
-
+  animating = false;
+  following = false;
+  followStatus = 'follow';
+  followed = false;
+  activity = false;
+  notifier: NotifierService;
   // tslint:disable-next-line: max-line-length
   constructor(private userService: UserService,
               private postService: PostService,
@@ -85,7 +94,17 @@ export class ProfileComponent implements OnInit {
   // Get User Info
   GetUserInfo(userID, key) {
     this.userService.GetUser(userID, key).subscribe((res: IResponse) => {
+      // this.animating = !this.animating;
       this.User = res.user;
+
+      // Do these if this user follows a certain user
+      if (res.following) {
+        this.following = res.following;
+        this.followStatus = 'unfollow';
+      }
+      if (res.followed) {
+        this.followed = res.followed;
+      }
     });
   }
 
@@ -112,14 +131,13 @@ export class ProfileComponent implements OnInit {
       },
       buttonIndex => {
         console.log(buttonIndex);
-        
         switch (buttonIndex) {
           case 0:
-              this.changeAvatar();
-              break;
+            this.changeAvatar();
+            break;
           case 1:
-              this.logOut();
-              break;
+            this.logOut();
+            break;
           default:
             break;
         }
@@ -127,4 +145,49 @@ export class ProfileComponent implements OnInit {
     );
   }
 
+  Follow(targetID) {
+    if (this.following === true) {
+      this.activity = !this.activity;
+      this.unFollow(targetID);
+    } else {
+      this.activity = !this.activity;
+      this.userService.Follow(targetID).subscribe((res: Response) => {
+        this.FollowSuccess(targetID);
+      }, (error) => {
+        this.activity = !this.activity;
+        this.FollowError();
+      });
+    }
+  }
+
+  FollowSuccess(user: IUser) {
+    this.activity = !this.activity;
+    this.followStatus = 'unfollow';
+    this.following = !this.following;
+    this.notifier.notify('success', `You're now following ${user.user.name}@ ${user.user.userTag}`);
+  }
+
+  FollowError() {
+    this.notifier.notify('error', 'Oops an error just occured');
+  }
+
+  unFollow(user) {
+    this.activity = !this.activity;
+    this.following = !this.following;
+    this.followStatus = 'Follow';
+  }
+
+  Style(): object {
+    if (this.following === true) {
+      return {
+        'background-color': 'white',
+         color: 'black',
+        };
+     } else {
+      return {
+        'background-color': '#082943',
+         color: 'white',
+        };
+     }
+  }
 }

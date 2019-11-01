@@ -1,40 +1,52 @@
 <div class="head-title">
   <h3><span class="typcn typcn-arrow-left left" (click)="PreviousPage()"></span> Explore</h3>
 </div>
-<Accordion >
-  <AccordionPanel class="panel" [key]="'0'" [header]="'On Your Campus'">
-      <div *ngFor="let user1 of Users1">
-       
-        <div class="card">
-          <div class="profile">
-            <img [src]="user1.userProfile.avatar" alt="" class="avatar">
-            <div class="creds">
-              <span class="name" [routerLink]="[ '/profile', user1._id ]">{{user1.name}}</span>
-              <span class="tag"> {{user1.userTag}}</span>
-            </div>
-        
-                <button *ngIf="user1._id !== userID" class="btn-f ripple" (click)="follow(user1._id, user1.userTag)"><span>follow</span></button>
-        
-          </div>
-        </div>
-      </div>
-      <div Button class="ripple"
-        style="bottom: 0; position: fixed; width: 100%; background-color: #082943; color: white;"> Invite Friends</div>
-  </AccordionPanel>
-  <AccordionPanel class="panel" [key]="'1'" [header]="'Other Campuses'">
-    <div *ngFor="let user2 of Users2">
-      <div class="card" >
+<Accordion [defaultActiveKey]="'0'">
+  <AccordionPanel class="panel"  [key]="'0'" [header]="'On Your Campus'">
+      <ActivityIndicator class="activity-indicator" [animating]="animating" [size]="'large'"></ActivityIndicator>
+    <div *ngFor="let user1 of Users1; let i = index; trackBy: trackElement">
+
+      <div class="card">
         <div class="profile">
-          <img src="http://placekitten.com/g/60/60" alt="" class="avatar">
+          <img [src]="user1.user.userProfile.avatar" alt="" class="avatar">
           <div class="creds">
-            <span class="name" [routerLink]="[ '/profile', user2._id ]"> {{user2.name}} </span>
-            <span class="tag"> {{user2.userTag}}</span>
+            <span class="name" [routerLink]="[ '/profile', user1.user._id ]">{{user1.user.name}}</span>
+            <span class="tag"> {{user1.user.userTag}}</span>
           </div>
-          <button class="btn-f ripple" (click)="follow(user2._id)"><span>follow</span></button>
+          <!-- If the selected index matches the current index and the targetID for the index matches the userID for that index then the button changes to a tick -->
+          <!-- <button *ngIf="user1.user._id !== userID"
+            [ngClass]="{'following': selectedIndex1 === i && targetID1 === user1._id || user1.isFollowed}" class="btn-f ripple"
+            (click)="follow1(user1.user._id, user1, i)"><span>follow</span></button>
+          <div *ngIf=" (selectedIndex1 === i) && (targetID1 === user1.user._id) || user1.isFollowed" class="followed">
+            <span class="typcn typcn-tick tick"></span>
+          </div> -->
         </div>
       </div>
     </div>
     <div Button class="ripple"
       style="bottom: 0; position: fixed; width: 100%; background-color: #082943; color: white;"> Invite Friends</div>
-</AccordionPanel>
+  </AccordionPanel>
+  <AccordionPanel class="panel" [key]="'1'" [header]="'Other Campuses'">
+      <ActivityIndicator class="activity-indicator" [animating]="animating" [size]="'large'"></ActivityIndicator>
+    <div *ngFor="let user2 of Users2 let z = index">
+      <div class="card">
+        <div class="profile">
+          <img src="http://placekitten.com/g/60/60" alt="" class="avatar">
+          <div class="creds">
+            <span class="name" [routerLink]="[ '/profile', user2.user._id ]"> {{user2.user.name}} </span>
+            <span class="tag"> {{user2.user.userTag}}</span>
+          </div>
+          <!-- If the selected index matches the current index and the targetID for the index matches the userID for that index then the button changes to a tick -->
+          <!-- <button class="btn-f ripple" [ngClass]="{'following': selectedIndex2 === z && targetID2 === user2.user._id || user2.isFollowed}"
+            (click)="follow2(user2.user._id,  user2.user, z)"><span>follow</span></button>
+          <div *ngIf="(selectedIndex2 === z) && (targetID2 === user2.user._id) || user2.isFollowed" class="followed">
+            <span class="typcn typcn-tick tick2"></span>
+          </div> -->
+        </div>
+      </div>
+    </div>
+    <div Button class="ripple"
+      style="bottom: 0; position: fixed; width: 100%; background-color: #082943; color: white;"> Invite Friends</div>
+  </AccordionPanel>
 </Accordion>
+<notifier-container></notifier-container>
