@@ -20,7 +20,7 @@
           </div>
         </ng-container>
         <div>
-          <div id="Empty-home" *ngIf="Posts == []">
+          <div id="Empty-home" *ngIf="Posts">
             <!-- Have some graphic to show empty -->
             <p>Such empty, find Others</p>
             <div class="btn" [routerLink]="[ '/explore-friends']" Button [type]="'primary'"> Find Friends</div>

@@ -30,7 +30,6 @@ export class HomeComponent implements OnInit {
   Posts: Array<IPost>;
 
   constructor(private router: Router, private postService: PostService) {
-
    }
 
   ngOnInit() {
