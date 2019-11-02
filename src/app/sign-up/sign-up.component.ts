@@ -166,7 +166,7 @@ export class SignUpComponent implements OnInit {
       name: form.name,
       password: form.password,
       university: this.university,
-      userTag: form.userTag,
+      userTag: `@${form.userTag}`,
     };
     this.userService.send(Form);
     this.router.navigateByUrl('/userprofile');
