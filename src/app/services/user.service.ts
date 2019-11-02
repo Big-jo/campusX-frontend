@@ -47,4 +47,8 @@ export class UserService {
   public Follow(targetID: string) {
     return this.http.post(`${this.baseApi}/${this.user}/follow`, {targetID});
   }
+
+  public GetFollowNotifications() {
+    return this.http.get(`${this.baseApi}/${this.user}/notification/follower`);
+  }
 }
