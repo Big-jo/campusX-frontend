@@ -5,28 +5,14 @@
           <div class="head-title">
               <h3>Notifications</h3>
           </div>
-          <!-- <div id="listPanel">
-              <div class="item">
+          <div id="listPanel">
+              <div *ngFor="let follower of followers" class="item">    
                   <span class="profile">
-                      <img class="avatar" src="http://placekitten.com/g/160/160" alt="" srcset="">
-                      <p><span class="name">John Doe</span> followed you</p>
+                      <img class="avatar" [src]="follower.follower.userProfile.avatar" alt="" srcset="">
+                      <p><span [routerLink]="[ '/profile', follower.follower._id ]" class="name">{{follower.follower.name}}</span><span class="tag">{{follower.follower.userTag}}</span> followed you</p>
                   </span>
-                  <button [type]="'primary'" class="btn-f-back ripple"><span>follow</span></button>
+                  <!-- <button [type]="'primary'" class="btn-f-back ripple"><span>follow</span></button> -->
               </div>
-              <div class="item">
-                    <span class="profile">
-                        <img class="avatar" src="http://placekitten.com/g/160/160" alt="" srcset="">
-                        <p><span class="name">John Doe</span> followed you</p>
-                    </span>
-                    <button class="btn-f-back ripple"><span>follow</span></button>
-                </div>
-                <div class="item">
-                        <span class="profile">
-                            <img class="avatar" src="http://placekitten.com/g/160/160" alt="" srcset="">
-                            <p><span class="name">John Doe</span> followed you</p>
-                        </span>
-                        <button [type]="'primary'" class="btn-f-back ripple"><span>follow</span></button>
-                    </div>
-          </div> -->
+          </div>
       </div>
     </div>
