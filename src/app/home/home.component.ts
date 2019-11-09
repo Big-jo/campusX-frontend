@@ -33,7 +33,11 @@ export class HomeComponent implements OnInit {
    }
 
   ngOnInit() {
+    console.log(this.Posts);
+
     this.GetPost();
+    console.log(this.Posts);
+
   }
 
   pullToRefresh(event) {

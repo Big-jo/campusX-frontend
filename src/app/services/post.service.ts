@@ -35,4 +35,15 @@ export class PostService {
   return this.http.get(`${this.baseApi}/${this.getPost}/${id}`);
  }
 
+ public LikePost(postID) {
+   return this.http.post(`${this.baseApi}/like`, {postID});
+ }
+
+ public DislikePost(postID) {
+  return this.http.post(`${this.baseApi}/dislike`, {postID});
+}
+
+public TrashPost(postID) {
+  return this.http.post(`${this.baseApi}/trash`, {postID});
+}
 }

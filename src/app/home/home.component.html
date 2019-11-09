@@ -16,11 +16,11 @@
         <!-- Pass Post Object To Card -->
         <ng-container>
           <div class="posts" *ngFor="let post of Posts">
-            <app-card [post]="post"></app-card>
+              <app-card [post]="post"></app-card>
           </div>
         </ng-container>
         <div>
-          <div id="Empty-home" *ngIf="Posts">
+          <div id="Empty-home" *ngIf="Posts === undefined">
             <!-- Have some graphic to show empty -->
             <p>Such empty, find Others</p>
             <div class="btn" [routerLink]="[ '/explore-friends']" Button [type]="'primary'"> Find Friends</div>

@@ -22,16 +22,16 @@
       <div id="interaction-box">
             <!-- Add ngStyle for this -->
             <div id="thumbs">
-                <span class="typcn typcn-thumbs-up ripple left">  
-                  <span class="badge">{{post.likes}}</span>
+                <span class="typcn typcn-thumbs-up ripple left" (click)="LikePost(post)" [ngClass]="{'like': like}">  
+                  <span class="badge" [ngClass]="{'like-badge': like}">{{post.likes}}</span>
                 </span>
-                <span class="typcn typcn-thumbs-down ripple right">
-                    <span class="badge">{{post.dislikes}}</span>
+                <span class="typcn typcn-thumbs-down ripple right" [ngClass]="{'dislike': dislike}" (click)="DislikePost(post)">
+                    <span class="badge" [ngClass]="{'dislike-badge': dislike}">{{post.dislikes}}</span>
                 </span>
             </div>
             <div class="trash">
-                <span class="typcn typcn-trash ripple"> 
-                    <span class="badge">{{post.trash}}</span>
+                <span class="typcn typcn-trash ripple" [ngClass]="{'trash': trash}" (click)="TrashPost(post)"> 
+                    <span class="badge" [ngClass]="{'trash-badge': trash}">{{post.trash}}</span>
                 </span> <!--TODO: Create Bages-->
             </div>
           <!-- <div id="comment"></div> -->

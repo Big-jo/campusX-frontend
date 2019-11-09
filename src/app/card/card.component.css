@@ -76,3 +76,11 @@ p{
 #thumbs{
 
 }
+.like, .dislike, .trash{
+    color: red;
+}
+
+.like-badge,.dislike-badge,.trash-badge{
+    background-color: red;
+    
+}
