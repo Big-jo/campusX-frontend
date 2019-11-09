@@ -1,11 +1,11 @@
-#btn-panel{
+#btn-panel, #head{
     display: flex;
     flex-direction: column;
     margin: 0;
     position: absolute;
-    top: 60%;
+    top: 40%;
     left: 50%;
-    transform: translate(-50%, 52%);
+    transform: translate(-50%, 70%);
     width: 100%;
     align-items: center;
 }
@@ -18,4 +18,20 @@
     text-align: center;
     /* padding: 10px; */
     font-family: 'Montserrat', sans-serif;
+}
+.humaaans{
+    height: 200px;
+    overflow: hidden;
+    transform: scaleY(-1);  
+    position: absolute;
+    
+    /* position: absolute; */
+
+}
+.guy-left{
+    transform: translate(80%, 256%);
+}
+.girl-right{
+    /* transform: translate(0%, 249%) rotate(10deg); */
+   left: 140px;
 }

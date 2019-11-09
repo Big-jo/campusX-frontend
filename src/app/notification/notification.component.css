@@ -51,3 +51,8 @@
 .tag {
     color: blue;
 }
+
+.plant{
+  height: 130px;
+  transform: translate(126px, 35px);
+}

@@ -162,3 +162,34 @@ h3{
     color: white;
     padding: 3px 4px 3px 5px ;
   }
+  .humaaans{
+    height: 200px;
+    overflow: hidden;
+    transform: scaleY(-1);  
+    position: absolute;
+    
+    /* position: absolute; */
+
+}
+.guy-left{
+    transform: translate(-11%, 256%);
+}
+.girl-right{
+    /* transform: translate(0%, 249%) rotate(10deg); */
+   left: 260px;
+}
+
+.girl-left{
+    transform: rotate(201deg);
+    left: -33px;
+    top: -4px;
+}
+
+.sit-girl{
+    transform: translate(119%, 256%);
+}
+
+.plant{
+  height: 130px;
+    transform: translate(73%, 441%);
+}
