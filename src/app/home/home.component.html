@@ -1,6 +1,6 @@
 <div class="container">
   <h3 class="head-title">Home <span class="typcn typcn-user-add" [routerLink]="[ '/explore-friends']"></span> </h3>
-  
+
   <!-- Create toolbar CSS class  -->
   <div class="background"></div>
   <!-- Background of the page -->
@@ -11,7 +11,7 @@
   <div class="content">
     <!-- Content of the page -->
     <div class="background"></div>
-    <div class="content" class="initial-page">
+    <div class="content initial-page" >
       <div style="padding: 7px 8px 7px 8px;" >
         <!-- Pass Post Object To Card -->
         <ng-container>
@@ -20,17 +20,24 @@
           </div>
         </ng-container>
         <div>
-          <div id="Empty-home" *ngIf="Posts === undefined">
+          <div id="Empty-home" *ngIf="!Posts">
             <!-- Have some graphic to show empty -->
             <p>Such empty, find Others</p>
             <div class="btn" [routerLink]="[ '/explore-friends']" Button [type]="'primary'"> Find Friends</div>
             <!-- Use something else than a button-->
           </div>
         </div>
-        
       </div>
     </div>
    <!-- Add Button to go to post-section -->
-   <button class="fab ripple" [routerLink]="['/post']"><span class=" typcn typcn-pen"></span></button>
+   <button class="fab ripple" [routerLink]="['/post/0']"><span class=" typcn typcn-pen"></span></button>
   </div>
 </div>
+
+<ngx-smart-modal #installModal class="modal" identifier="installModal" customClass="nsm-centered nsm-dialog-animation-ttb">
+  <h2>Add To Home Screen ?</h2>
+  <div class="btn-modal">
+    <button class="cancel" (click)="installModal.close()">Cancel</button>
+    <button class="install" (click)="installPwa()">Add</button>
+  </div>
+</ngx-smart-modal>
