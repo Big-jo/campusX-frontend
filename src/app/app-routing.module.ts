@@ -11,6 +11,7 @@ import { ExploteTemplateComponent } from './explore/explote-template/explote-tem
 import { ExploreFriendsComponent } from './explore/explore-friends/explore-friends.component';
 import { ProfileComponent } from './profile/profile.component';
 import { AvatarComponent } from './avatar/avatar.component';
+import {CommentsTemplateComponent} from './home/comments-template/comments-template.component';
 
 const routes: Routes = [
   {path: '', component: LandingComponent},
@@ -18,11 +19,12 @@ const routes: Routes = [
   {path: 'signUp', component: SignUpComponent},
   {path: 'main', component: MainComponent},
   {path: 'userprofile', component: UserprofileComponent},
-  {path: 'post', component: PostBoxComponent},
+  {path: 'post/:postID', component: PostBoxComponent},
   {path: 'campus/:id', component: ExploteTemplateComponent},
   {path: 'explore-friends', component: ExploreFriendsComponent},
   {path: 'profile/:id', component: ProfileComponent},
-  {path: 'avatar', component: AvatarComponent}
+  {path: 'avatar', component: AvatarComponent},
+  {path: 'comments/:postID', component: CommentsTemplateComponent}
 ];
 
 @NgModule({

@@ -8,6 +8,7 @@ import {
   StorageService
 } from './storage.service';
 import { environment } from 'src/environments/environment';
+import {IPost} from '../interfaces/Post';
 
 @Injectable({
   providedIn: 'root'
@@ -46,4 +47,12 @@ export class PostService {
 public TrashPost(postID) {
   return this.http.post(`${this.baseApi}/trash`, {postID});
 }
+
+  public GetComments(postID) {
+    return this.http.get<IPost[]>(`${this.baseApi}/comments/${postID}`);
+  }
+
+  public Comment(PostID: string, comment: string) {
+    return this.http.post(`${this.baseApi}/createcomment`, {comment, PostID});
+  }
 }

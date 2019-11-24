@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import {Form, FormControl, FormsModule} from '@angular/forms';
 import { UserService } from '../services/user.service';
 import { Router } from '@angular/router';
 import { StorageService } from '../services/storage.service';
+import {debounceTime, distinctUntilChanged, switchMap} from 'rxjs/operators';
+
+
 interface IUser {
   name: string;
   email: string;
@@ -27,6 +30,10 @@ interface ICampus {
 export class SignUpComponent implements OnInit {
   campuses: ICampus[];
   university: string;
+  usertag: FormControl = new FormControl();
+  available = false;
+  unavailable = false;
+
   constructor(private userService: UserService, private router: Router, private storageService: StorageService) {
     this.university = '';
 
@@ -155,18 +162,32 @@ export class SignUpComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.usertag.valueChanges
+      .pipe(
+        debounceTime(1000),
+        distinctUntilChanged(),
+        switchMap((query) => this.userService.CheckTag(query))
+      )
+      .subscribe((value) => {
+        // tslint:disable-next-line:no-unused-expression
+        if (value === 1) {
+          this.available = true;
+        }
+        if (value === 0) {
+          this.unavailable = true;
+        }
+        console.log(value);
+      });
   }
 
   onSubmit(form) {
-    console.log(form.university);
-
     const Form: IUser = {
       email: form.email,
       gender: this.CheckGender(form.male, form.female),
       name: form.name,
       password: form.password,
       university: this.university,
-      userTag: `@${form.userTag}`,
+      userTag: `@${this.usertag.value}`,
     };
     this.userService.send(Form);
     this.router.navigateByUrl('/userprofile');
@@ -183,5 +204,7 @@ export class SignUpComponent implements OnInit {
   onChange(uni) {
     this.university = uni;
   }
+
+
   // TODO: Check if email exist before moving on to the other component
 }

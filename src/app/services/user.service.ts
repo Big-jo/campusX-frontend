@@ -13,7 +13,7 @@ export class UserService {
 
   private Source = new BehaviorSubject('default');
   Current = this.Source.asObservable();
-  
+
   constructor(private http: HttpClient, private storageService: StorageService) { }
 
   private userID = this.storageService.GetLocal('userID');
@@ -50,5 +50,13 @@ export class UserService {
 
   public GetFollowNotifications() {
     return this.http.get(`${this.baseApi}/${this.user}/notification/follower`);
+  }
+
+  public CheckTag(tag) {
+    return this.http.get(`${this.baseApi}/${this.user}/userTag/@${tag}`);
+  }
+
+  public updateFcmToken(token) {
+    return this.http.post(`${this.baseApi}/${this.user}/fcmUpdate`, {fcm_token: token});
   }
 }

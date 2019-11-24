@@ -1,4 +1,4 @@
-<div class="">
+<div>
   <!-- Background of the page -->
   <div class="head-title">
     <div id="back">
@@ -9,7 +9,7 @@
       <span id="cog" (click)="showActionSheet()" class="typcn typcn-cog-outline"
         *ngIf="(OptionsShow === true) && (User._id === auth ) "></span>
     </div>
-    <!-- <h3> <span class="typcn typcn-arrow-left left" (click)="PreviousPage()"></span>Profile 
+    <!-- <h3> <span class="typcn typcn-arrow-left left" (click)="PreviousPage()"></span>Profile
       <span class="preference" *ngIf="(OptionsShow === true) && (User._id === auth )then popover "></span>
     </h3> -->
   </div>
@@ -63,49 +63,3 @@
   </div>
 </div>
 <ActivityIndicator [animating]="animating" [text]="'Loading Profile'" [toast]="true"></ActivityIndicator>
-
-<!-- <Modal [(ngModel)]="this.modal.state" [popup]="true" [animationType]="'slide-up'" (onClose)="onClose()">
-    <List [renderHeader]="renderHeader" [className]="'popup-list'">
-      <ListItem>股票名称</ListItem>
-      <ListItem>股票代码</ListItem>
-      <ListItem>买入价格</ListItem>
-      <ListItem> <div Button [type]="'primary'" (onClick)="onClose('modal2')">买入</div> </ListItem>
-    </List>
-  </Modal> -->
-
-<!-- <ng-template #popover>
-  <div Popover 
-  [ngStyle]="{'height': '100%', 'display': 'flex', 'align-items': 'center'}" 
-  [mask]="true"
-  [showArrow]="true" 
-  [overlay]="overlay" 
-  [placement]="'bottomRight'" 
-  class="typcn typcn-cog-outline"></div>
-</ng-template> -->
-
-<!-- <ng-template #popover1>
-    <div Popover
-          [ngStyle]="{'height': '100%', 'display': 'flex', 'align-items': 'center'}"
-          [mask]="true"
-          [showArrow]="true"
-          [overlay]="editOverlay"
-          [placement]="'bottomRight'"
-    ></div>
-  </ng-template> -->
-
-<!-- <ng-template #overlay>
-  <PopoverItem [icon]="icon1" (click)="logOut()">
-    <p>Log Out</p>
-  </PopoverItem>
-  <PopoverItem [icon]="icon2" (click)="changeAvatar()">
-    <p>Edit Profile</p>
-  </PopoverItem>
-</ng-template>
-
-<ng-template #icon1>
-  <span class="typcn typcn-arrow-back-outline"></span>
-</ng-template>
-
-<ng-template #icon2>
-  <span class="typcn typcn-edit"></span>
-</ng-template> -->

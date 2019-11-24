@@ -1,8 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
-/* @import '../node_modules/onsenui/css/onsenui.css';
-@import '../node_modules/onsenui/css/onsen-css-components.css'; */
 @import '../node_modules/angular-notifier/styles.css';
-
+@import "../node_modules/ngx-smart-modal/ngx-smart-modal.css";
 
 body, html {
     background-color: white;
@@ -19,7 +17,7 @@ h1,h2,h3,h4,h5,h6, p{
     overflow: hidden;
     transform: translate3d(0, 0, 0);
   }
-  
+
   .ripple:after {
     content: "";
     display: block;
@@ -36,7 +34,7 @@ h1,h2,h3,h4,h5,h6, p{
     opacity: 0;
     transition: transform .5s, opacity 1s;
   }
-  
+
   .ripple:active:after {
     transform: scale(0, 0);
     opacity: .3;
@@ -44,10 +42,16 @@ h1,h2,h3,h4,h5,h6, p{
   }
   .head-title{
     box-sizing: border-box;
-    text-align: center; 
-    margin: 5px; 
+    text-align: center;
+    margin: 5px;
     padding: 10px;
 }
 div{
   font-family: 'Montserrat', Arial, Helvetica, sans-serif !important;
+}
+
+.header-left {
+  position: relative;
+  right: 130px;
+  font-size: 25px;
 }

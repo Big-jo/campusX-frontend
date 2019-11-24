@@ -21,4 +21,5 @@ export interface IPost {
   createdAt: string;
   likedBy: string[];
   _id: string;
+  comments: IPost[];
 }

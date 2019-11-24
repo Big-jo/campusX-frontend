@@ -1,9 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { FormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { PlyrModule } from 'ngx-plyr';
-// import {OnsenModule} from 'ngx-onsenui';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -36,6 +36,12 @@ import { ExploreFriendsComponent } from './explore/explore-friends/explore-frien
 import { ImageUploadComponent } from './image-upload/image-upload.component';
 import { TokenInterceptor } from './auth/token.interceptor';
 import { AvatarComponent } from './avatar/avatar.component';
+import {NgxSmartModalModule} from 'ngx-smart-modal';
+import {PwaService} from './services/pwa.service';
+import {CommentsTemplateComponent} from './home/comments-template/comments-template.component';
+import {AngularFireModule} from '@angular/fire';
+import {AngularFireMessagingModule} from '@angular/fire/messaging';
+import {NotificationService} from './services/notification.service';
 
 
 // export function tokenGetter() {
@@ -100,7 +106,10 @@ const customNotifierOptions: NotifierOptions = {
       ExploteTemplateComponent,
       ExploreFriendsComponent,
       ImageUploadComponent,
-      AvatarComponent
+     AvatarComponent,
+     CommentsTemplateComponent,
+
+
    ],
    imports: [
       BrowserModule,
@@ -109,25 +118,24 @@ const customNotifierOptions: NotifierOptions = {
       PlyrModule,
       BrowserAnimationsModule,
       HttpClientModule,
-      // JwtModule.forRoot({
-      //    config: {
-      //       tokenGetter,
-      //       whitelistedDomains: ['localhost:3000', 'campusx.herokuapp.com'],
-      //    },
-      // }),
+     NgxSmartModalModule.forRoot(),
       NotifierModule.withConfig(customNotifierOptions),
       NgZorroAntdMobileModule,
       HttpClientModule,
-      ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
+     ReactiveFormsModule,
+     AngularFireModule.initializeApp(environment.firebase),
+     AngularFireMessagingModule,
+     ServiceWorkerModule.register('/ngsw-worker.js', {enabled: environment.production}),
    ],
    providers: [
       UserService,
       PostService,
       StorageService,
-      { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true }],
-   schemas: [
 
-   ],
+     // PwaService,
+     NotificationService,
+      { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true }],
+  schemas: [],
    bootstrap: [
       AppComponent
    ]

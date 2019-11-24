@@ -29,15 +29,18 @@
       <div *ngIf="password.errors.required" class="required">Password is required</div>
     </div>
     <div class="question">
-      <input type="text" name="userTag" required ngModel #userTag="ngModel" [pattern]="'^[A-Za-z0-9_]{1,15}$'"/>
+      <input type="text" name="userTag" required [formControl]="usertag" ngModel [pattern]="'^@?(\\w){1,15}$'"/>
       <label>UserTag, Example: @RealMe</label>
       <!-- TODO: Show userTag in style -->
     </div>
-    <div *ngIf="form.submitted && userTag.invalid" class=validation>
-      <div *ngIf="userTag.errors.required" class="required">A UserTag is required</div>
-      <div *ngIf="userTag.errors?.pattern" class="required">Only "_" & "A-z a-z" are allowed</div>
+    <!--    FIXME: Fix this mess-->
+    <!--    <div id="available" *ngIf="available">Available</div>-->
+    <!--    <div id="unavailable" *ngIf="unavailable">Unavailable</div>-->
+    <div *ngIf="form.submitted && usertag.invalid" class=validation>
+      <div *ngIf="usertag.errors.required" class="required">A UserTag is required</div>
+      <div *ngIf="usertag.errors?.pattern" class="required">Only "_" & "A-z a-z" are allowed</div>
     </div>
-    
+
     <div>
       <select name="university" id="university" [(ngModel)]="university" (ngModelChange)="onChange($event)" ngModel
         #uni="ngModel">
@@ -64,5 +67,5 @@
   <button type="submit" class="ripple">Sign Up</button>
   <p [routerLink]='["/login"]'>Already Have An Account ?</p>
 </form>
-<img src="/assets/humaaans/Rad.svg"  class="humaaans rad">  
+<img src="/assets/humaaans/Rad.svg" class="humaaans rad">
 <!-- <img src="/assets/humaaans/Short Beard.svg"  class="humaaans short-beard">  -->

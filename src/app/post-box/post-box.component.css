@@ -46,11 +46,19 @@
     padding-right: 10px;
 }
 .typcn{
-    font-size: 24px;
+  font-size: 24px;
 }
 #btn-post{
-    width: 90%;
-    margin: auto;
-    margin-top: 22px;
+  width: 90%;
+  margin: 22px auto auto;
+  background-color: #082943;
+  color: white;
 }
-/* TODO: Add a nie font */
+
+.left {
+  position: relative;
+  right: 130px;
+  font-size: 25px;
+}
+
+/* TODO: Add a nice font */

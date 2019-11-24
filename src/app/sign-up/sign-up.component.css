@@ -26,17 +26,17 @@ h3{
     -webkit-transition: all 0.25s cubic-bezier(0.53, 0.01, 0.35, 1.5);
     transition: all 0.25s cubic-bezier(0.53, 0.01, 0.35, 1.5);
   }
-  
+
   * {
     font-family: Helvetica, sans-serif;
     font-weight: light;
     -webkit-font-smoothing: antialiased;
   }
-  
+
   html {
     background-color: #082943;
   }
-  
+
   /* form {
     position: relative;
     display: inline-block;
@@ -164,9 +164,9 @@ h3{
     user-select: none;
     margin-right: 40px;
     margin-left: 40px;
-    
-  }
-  
+
+}
+
   /* Hide the browser's default checkbox */
   .container input {
     position: absolute;
@@ -175,8 +175,8 @@ h3{
     height: 0;
     width: 0;
   }
-  
-  /* Create a custom checkbox */
+
+/* Create a custom checkbox */
   .checkmark {
     position: absolute;
     top: 0;
@@ -186,30 +186,30 @@ h3{
     background-color: #eee;
     border-radius: 25px;
   }
-  
-  /* On mouse-over, add a grey background color */
+
+/* On mouse-over, add a grey background color */
   .container:hover input ~ .checkmark {
     background-color: #ccc;
   }
-  
-  /* When the checkbox is checked, add a blue background */
+
+/* When the checkbox is checked, add a blue background */
   .container input:checked ~ .checkmark {
     background-color: #082943;
   }
-  
-  /* Create the checkmark/indicator (hidden when not checked) */
+
+/* Create the checkmark/indicator (hidden when not checked) */
   .checkmark:after {
     content: "";
     position: absolute;
     display: none;
   }
-  
-  /* Show the checkmark when checked */
+
+/* Show the checkmark when checked */
   .container input:checked ~ .checkmark:after {
     display: block;
   }
-  
-  /* Style the checkmark/indicator */
+
+/* Style the checkmark/indicator */
   .container .checkmark:after {
     left: 9px;
     top: 5px;
@@ -256,7 +256,7 @@ h3{
   .humaaans{
     /* height: 200px; */
     overflow: hidden;
-    transform: scaleY(-1);  
+    transform: scaleY(-1);
     position: absolute;
   }
   .rad{
@@ -267,3 +267,12 @@ h3{
     right: 0;
     transform: translate(14%, 556%);
   } */
+#available {
+  text-align: center;
+  color: #082943;
+}
+
+#unavailable {
+  text-align: center;
+  color: red;
+}

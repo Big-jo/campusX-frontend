@@ -1,11 +1,12 @@
 {
-  "name": "campusX",
-  "short_name": "campusX",
-  "theme_color": "#1976d2",
+  "name": "campus",
+  "short_name": "campus",
+  "theme_color": "#082943",
   "background_color": "#fafafa",
   "display": "standalone",
   "scope": "/",
   "start_url": "/",
+  "gcm_sender_id": "103953800507",
   "icons": [
     {
       "src": "assets/icons/icon-72x72.png",
