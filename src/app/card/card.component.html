@@ -22,7 +22,7 @@
       <div id="interaction-box">
             <!-- Add ngStyle for this -->
             <div id="thumbs">
-                <span class="typcn typcn-thumbs-up ripple left" (click)="LikePost(post)" [ngClass]="{'like': like}">  
+                <span class="typcn typcn-thumbs-up ripple left" (click)="LikePost(post)" [ngClass]="{'like': like}">
                   <span class="badge" [ngClass]="{'like-badge': like}">{{post.likes}}</span>
                 </span>
                 <span class="typcn typcn-thumbs-down ripple right" [ngClass]="{'dislike': dislike}" (click)="DislikePost(post)">
@@ -30,12 +30,16 @@
                 </span>
             </div>
             <div class="trash">
-                <span class="typcn typcn-trash ripple" [ngClass]="{'trash': trash}" (click)="TrashPost(post)"> 
+                <span class="typcn typcn-trash ripple" [ngClass]="{'trash': trash}" (click)="TrashPost(post)">
                     <span class="badge" [ngClass]="{'trash-badge': trash}">{{post.trash}}</span>
-                </span> <!--TODO: Create Bages-->
+                </span>
             </div>
-          <!-- <div id="comment"></div> -->
         </div>
+    </div>
+    <div id="card-footer">
+      <p *ngIf="hasComments" style="text-align: center" routerLink="/comments/{{post._id}}" >Comments <span style="font-weight: bolder">({{post.comments.length}})</span></p>
+      <div id="comment-pen" routerLink="/post/{{post._id}}"><span *ngIf="!comment" class="typcn typcn-pen"></span></div>
     </div>
   </div>
 </div>
+

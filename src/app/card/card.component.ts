@@ -12,8 +12,9 @@ import { PostService } from '../services/post.service';
 })
 export class CardComponent implements OnInit {
   @Input() post: IPost;
+  @Input() comment: boolean; // The comment post
+  @Input() commentTopic: boolean; // The post being commented on
   @ViewChild(PlyrComponent, { static: true }) plyr: PlyrComponent;
-
   badge = {
     'background-color': '#082945',
   };
@@ -25,12 +26,18 @@ export class CardComponent implements OnInit {
 
   userID;
   videoSources: Plyr.Source[];
+
+  hasComments: boolean;
+
   constructor(private postService: PostService) {
     this.userID = localStorage.getItem('userID');
   }
 
 
   ngOnInit() {
+    if (this.post.comments) {
+      this.hasComments = true;
+    }
     this.post.likedBy.includes(this.userID) ? this.like = true : this.like = false ;
 
     // Check if post contains a video
@@ -42,7 +49,7 @@ export class CardComponent implements OnInit {
   }
 
   played(event: Plyr.PlyrEvent) {
-    console.log('played', event);
+
   }
 
   play(): void {

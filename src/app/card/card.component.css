@@ -21,7 +21,7 @@
     flex-direction: row;
     margin: 20px 0px 20px 0px;
     box-sizing: border-box;
-    
+
 }
 h1,h2,h3,h4,h5,h6, p {
     font-family: 'Montserrat', sans-serif;
@@ -57,7 +57,7 @@ h1,h2,h3,h4,h5,h6, p {
 }
 #ld{
   display: flex;
-  flex-direction: row;   
+  flex-direction: row;
 }
 p{
     word-wrap: break-word;
@@ -82,5 +82,17 @@ p{
 
 .like-badge,.dislike-badge,.trash-badge{
     background-color: red;
-    
+
+}
+#card-footer{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 10px;
+
+}
+#comment-pen{
+  position: relative;
+  left: 84px;
+  bottom: 4px;
 }
